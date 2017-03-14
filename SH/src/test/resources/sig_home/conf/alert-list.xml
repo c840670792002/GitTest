@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="Big5"?>
+
+<SSI-Alert-List>
+    <Contact>
+        <Mail>chuchhuang@fareastone.com.tw</Mail>
+        <MSISDN>0936356009</MSISDN>
+    </Contact>
+    <Contact>
+        <Mail>lichtsai@fareastone.com.tw</Mail>
+        <MSISDN>0955227353</MSISDN>
+    </Contact>
+    <Contact>
+        <Mail>mandyw3@fareastone.com.tw</Mail>
+        <MSISDN>0915555818</MSISDN>
+    </Contact>
+    <Contact>
+        <Mail>johnnys@fareastone.com.tw</Mail>
+        <MSISDN>0925456789</MSISDN>
+    </Contact>
+    <Contact>
+        <Mail>tchuang@fareastone.com.tw</Mail>
+        <MSISDN>0931114186</MSISDN>
+    </Contact>
+</SSI-Alert-List>

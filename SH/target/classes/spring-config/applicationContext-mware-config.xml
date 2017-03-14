@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:soap="http://cxf.apache.org/bindings/soap" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jms="http://cxf.apache.org/transports/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+				http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://cxf.apache.org/jaxws
+				http://cxf.apache.org/schemas/jaxws.xsd
+		        http://cxf.apache.org/transports/jms 
+				http://cxf.apache.org/schemas/configuration/jms.xsd
+				http://cxf.apache.org/transports/http/configuration
+				http://cxf.apache.org/schemas/configuration/http-conf.xsd
+				http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:property-placeholder location='classpath:smarthome.properties' />
+
+	<!-- bus client -->
+	<jaxws:client id="crmBillInquiryBizService"
+		serviceClass="com.fet.esb.crm.biz.services.crmbillinquirybizservice.CRMBillInquiryBizService"
+		address="${esb.service.url}">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:client>
+	<!-- mware client -->
+	<bean id="userProfileClient"
+		class="com.fet.crm.smarthome.mware.client.impl.UserProfileClientImpl" />
+	<bean id="fakeUserProfileClient"
+		class="com.fet.crm.smarthome.mware.client.impl.FakeUserProfileClientImpl" />
+	<bean id="offerClient" class="com.fet.crm.smarthome.mware.client.impl.OfferClientImpl">
+		<property name="crmBillInquiryBizService" ref="crmBillInquiryBizService" />
+	</bean>
+	<bean id="deviceClient"
+		class="com.fet.crm.smarthome.mware.client.impl.DeviceClientImpl">
+	</bean>
+	<bean id="sigClient" class="com.fet.crm.smarthome.mware.client.impl.SIGClientImpl">
+		<property name="searchFacade" ref="searchFacade" />
+	</bean>
+	<bean id="fakeSigClient"
+		class="com.fet.crm.smarthome.mware.client.impl.FakeSIGClientImpl" />
+	<bean id="wsClient" class="com.fet.crm.smarthome.mware.client.impl.WSClientImpl" />
+</beans>

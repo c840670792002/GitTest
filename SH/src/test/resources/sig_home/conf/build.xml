@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SSIUtility" default="build" basedir=".">
+
+	<!-- ================================================================ -->
+	<!--                            print help                            -->
+	<!-- ================================================================ -->
+	<target name="help">
+		<echo message="Usage:"/>
+		<echo message="ant javadocs       -- create Javadocs"/>
+		<echo message="ant build          -- build batch jar"/>
+	</target>
+
+	<!-- ================================================================ -->
+	<!--                            properties                            -->
+	<!-- ================================================================ -->
+    <property name="build" value="../build"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="LIB" value="../APP-INF/lib"/>
+    <property name="WLS_LIB" value="C:/bea/weblogic81/server/lib"/>
+    <path id="project.classpath">
+        <pathelement location="../classes"/>
+        <pathelement location="${WLS_LIB}/weblogic.jar"/>
+        <pathelement location="${LIB}/log4j-1.2.8.jar"/>
+        <pathelement location="${LIB}/jdom.jar"/>
+        <pathelement location="${LIB}/SIG2.0.jar"/>
+        <pathelement location="${LIB}/siggw.jar"/>
+    </path>
+    <property name="packages" value="com.fet.ssi.*"/>
+    <property name="locale" value="zh_TW"/>
+    <property name="windowtitle" value="Store Service Integration Phase 2.0 API"/>
+    <property name="copyright" value="Copyright (c) 2006 FarEasTone Inc.  All Rights Reserved."/>
+
+	<!-- ================================================================ -->
+	<!--                            initial                               -->
+	<!-- ================================================================ -->
+    <target name="init">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${classes}"/>
+    </target>
+
+	<!-- ================================================================ -->
+	<!--                            clean                                 -->
+	<!-- ================================================================ -->
+    <target name="clean">
+        <delete dir="${classes}"/>
+        <delete dir="${build}"/>
+    </target>
+
+	<!-- ================================================================ -->
+	<!--                            compile java                          -->
+	<!-- ================================================================ -->
+    <target name="compile" depends="clean,init">
+        <echo message=""/>
+        <echo message="Compile source for ${ant.project.name} to ${classes}"/>
+        <echo message=""/>
+        <javac optimize="on" debug="on" classpath="${classpath}" destdir="${classes}">
+            <src path="."/>
+            <exclude name="*.xml"/>
+            <exclude name="*.properties"/>
+            <classpath refid="project.classpath"/>
+        </javac>
+    </target>
+
+	<!-- ================================================================ -->
+	<!--                            build jar                             -->
+	<!-- ================================================================ -->
+    <target name="build" depends="clean,init,compile">
+        <echo message=""/>
+        <echo message="Build SSIUtility.jar to ${build}"/>
+        <echo message=""/>
+        <jar jarfile="${build}/SSIUtility.jar" basedir="${classes}"/>
+    </target>
+
+	<!-- ================================================================ -->
+	<!--                            java docs                             -->
+	<!-- ================================================================ -->
+	<target name="javadocs" depends="" description="Creates the API documentation">
+		<delete dir="${build}/docs"/>
+		<mkdir dir="${build}/docs"/>
+		<javadoc packagenames="${packages}" sourcepath="." classpath="${classpath}" destdir="${build}/docs" author="true" version="true" locale="${locale}" windowtitle="${windowtitle}" bottom="${copyright}" maxmemory="96m"/>
+	</target>
+
+</project>

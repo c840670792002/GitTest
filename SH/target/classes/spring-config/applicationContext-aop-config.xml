@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	
+	<aop:aspectj-autoproxy />
+	
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="actionOperation"
+			expression="execution(* com.fet.crm..*.action..*.*(..))" />
+		<aop:pointcut id="facadeOperation"
+			expression="execution(* com.fet.crm..*.facade.impl..*.*(..))" />
+		<aop:pointcut id="serviceOperation"
+			expression="execution(* com.fet.crm..*.service.impl..*.*(..))" />
+		<aop:pointcut id="daoOperation"
+			expression="execution(* com.fet.crm..*.dao.impl..*.*(..))" />
+		<aop:pointcut id="mwareServiceOperation"
+			expression="execution(* com.fet.crm..*.mware..*.impl..*.*(..))" />
+
+		<aop:advisor id="FetActionManager" advice-ref="FetActionAdviceBean"
+			pointcut-ref="actionOperation" order="1" />
+		<aop:advisor id="FetFacadeManager" advice-ref="FetFacadeAdviceBean"
+			pointcut-ref="facadeOperation" order="1" />
+		<aop:advisor id="FetServiceManager" advice-ref="FetServiceAdviceBean"
+			pointcut-ref="serviceOperation" order="1" />
+		<aop:advisor id="FetDaoManager" advice-ref="FetDaoAdviceBean"
+			pointcut-ref="daoOperation" order="1" />
+		<aop:advisor id="FetMWareServiceManager" advice-ref="FetMWareServiceAdviceBean"
+			pointcut-ref="mwareServiceOperation" order="1" />
+	</aop:config>
+
+	<bean id="FetActionAdviceBean" class="com.fet.generic.aop.action.ActionLoggerAdvice"></bean>
+	<bean id="FetFacadeAdviceBean" class="com.fet.generic.aop.facade.FacadeLoggerAdvice"></bean>
+	<bean id="FetServiceAdviceBean" class="com.fet.generic.aop.service.ServiceLoggerAdvice"></bean>
+	<bean id="FetDaoAdviceBean" class="com.fet.generic.aop.dao.DaoLoggerAdvice"></bean>
+	<bean id="FetMWareServiceAdviceBean" class="com.fet.generic.aop.mware.MWareLoggerAdvice"></bean>
+</beans>

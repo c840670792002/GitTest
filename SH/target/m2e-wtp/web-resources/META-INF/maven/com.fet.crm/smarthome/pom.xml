@@ -1,0 +1,265 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.fet.crm</groupId>
+	<artifactId>smarthome</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+	<name>smarthome Maven Webapp</name>
+	<url>http://smarthome.fetnet.net/smarthome</url>
+	
+	<properties>
+	    <jdk.version>1.8</jdk.version>
+	    
+		<jackson.version>2.8.7</jackson.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<cxf.version>3.0.5</cxf.version>
+		<fet.web.spring.version>2.0.0</fet.web.spring.version>		
+		<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
+		<cxf.version>2.7.0</cxf.version>
+        <spring.version>4.3.6.RELEASE</spring.version>
+	</properties>
+	
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<conf.folder.name>conf/dev</conf.folder.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>staging</id>
+			<properties>
+				<conf.folder.name>conf/staging</conf.folder.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>prd</id>
+			<properties>
+				<conf.folder.name>conf/prd</conf.folder.name>
+			</properties>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<!-- FET Maven Repository Group -->
+		<repository>
+			<id>fet-maven-group</id>
+			<name>fet-maven-group</name>
+			<url>http://flip-test.fareastone.com.tw/nexus/content/groups/fet-maven-group/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<!-- fet lib -->
+		<!-- 
+		<dependency>
+			<groupId>com.fet</groupId>
+			<artifactId>fet-web-spring</artifactId>
+			<version>${fet.web.spring.version}</version>
+		</dependency>
+		-->
+		<!-- fet SIG lib -->
+		<!-- 
+		<dependency>
+			<groupId>com.fet</groupId>
+			<artifactId>SIG</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fet</groupId>
+			<artifactId>siggw</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+        -->
+        
+        <!-- Spring Framework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+        
+        
+		<!-- cxf -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf.xjc-utils</groupId>
+			<artifactId>cxf-xjc-runtime</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.1.5.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		
+<!-- Commons -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.5</version>
+</dependency>
+<!-- AspectJ -->
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjtools</artifactId>
+    <version>1.8.10</version>
+</dependency>
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20160810</version>
+</dependency>
+<dependency>
+    <groupId>commons-lang</groupId>
+    <artifactId>commons-lang</artifactId>
+    <version>2.6</version>
+</dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>jquery</artifactId>
+    <version>2.1.4</version>
+</dependency>
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.8.0</version>
+</dependency>
+
+<!-- httpClient -->
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.3</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>${jackson.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>${jackson.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>${jackson.version}</version>
+</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>smarthome</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<targetPath>../classes</targetPath>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${conf.folder.name}</directory>
+				<targetPath>../classes</targetPath>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- 
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>${cxf.version}</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/SOA_CRM_CRMBillInquiryBizService.wsdl</wsdl>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			-->
+		</plugins>
+	</build>
+</project>

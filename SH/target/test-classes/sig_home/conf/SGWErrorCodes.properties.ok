@@ -1,0 +1,40 @@
+# SIGERR_0000~SIGERR_0999 
+# Any exceptions thrown from client side, mostly will be input parameter validation fail 
+SGWERR_0000=Mandatory data is missing: % 
+SGWERR_0001=Incorrect data formate: %
+SGWERR_0002=Lenght of input incorrect: %
+SGWERR_0003=This API support SIG-K ONLY: %
+SGWERR_0004=This API support SIG-F ONLY: %
+SGWERR_0005=Facade Access mode not match input data
+SGWERR_0006=Business Entity Type incorrect: %
+SGWERR_0007=Service Id not supported in SCAOperationK: %
+
+# SIGERR_1000~SIGERR_1999
+# Application Exceptions
+SGWERR_1000=Error Calling BSCS Stored Procedure: %
+SGWERR_1001=SQL Exception: %
+SGWERR_1002=Input not found from server: %
+SGWERR_1003=MSISDN / ROCID validation fail.
+SGWERR_1004=Billing Data Issue : %
+SGWERR_1005=SCA Operation Failure : %
+SGWERR_1006=Billing data error : %
+
+# SIGERR_9000~SIGERR_9998
+# System Exceptions. All system exceptions will be thrown here.
+SGWERR_9000=Configuration File not found: %
+SGWERR_9001=Property Value not found: %
+SGWERR_9002=API Method not found: %
+SGWERR_9003=Wrong APIMethod configuration: %
+SGWERR_9004=Failed connecting to SGW Server EJB.
+SGWERR_9005=SGW Server API invocation failure.
+SGWERR_9006=Cannot create database connection: %
+SGWERR_9007=Incorrect DB connection setting: %
+SGWERR_9008=Database Exception: %
+
+# SIGERR_9999
+# Unhanded Exceptions
+SGWERR_9999=Unhanded Exceptions
+
+
+
+

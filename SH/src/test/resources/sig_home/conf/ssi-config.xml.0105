@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="Big5"?>
+<!--
+	/**
+	*   字串中如果有特殊字元 <. >, !, &,或空白.  可使用 <![CDATA[...............]]>
+	*
+-->
+<SSI-System>
+	<!--SIG API Setting -->
+	<ENV_SIG>
+		<!-- SIG_USER_NAME_F -->
+		<ref>
+			<Ref-Name>SIG_USERNAME_F</Ref-Name>
+			<Ref-Value>SIT01_01</Ref-Value>
+		</ref>
+		<!-- SIG_PASSWORD_F -->
+		<ref>
+			<Ref-Name>SIG_PASSWORD_F</Ref-Name>
+			<Ref-Value>SIT01_01</Ref-Value>
+		</ref>
+		<!-- SIG_USER_NAME_K -->
+		<ref>
+			<Ref-Name>SIG_USERNAME_K</Ref-Name>
+			<Ref-Value>SSI_SERVCHG</Ref-Value>
+		</ref>
+		<!-- SIG_PASSWORD_K -->
+		<ref>
+			<Ref-Name>SIG_PASSWORD_K</Ref-Name>
+			<Ref-Value>SSI_SIT03</Ref-Value>
+		</ref>
+		<!-- SIG USER ID F-->
+		<ref>
+			<Ref-Name>SIG_USER_ID_F</Ref-Name>
+			<Ref-Value>SSI_SIT03</Ref-Value>
+		</ref>
+		<!-- SIG CHANNEL F -->
+		<ref>
+			<Ref-Name>SIG_CHANNEL_F</Ref-Name>
+			<Ref-Value>SSI</Ref-Value>
+		</ref>
+	</ENV_SIG>
+
+	<!--DB API Setting -->
+	<ENV_DB_SSI>
+		<!--ASF DB URL -->
+		<ref>
+			<Ref-Name>ASF_DB_URL</Ref-Name>
+			<Ref-Value>
+				jdbc:oracle:thin:@10.64.34.1:1560:ASFTEST
+			</Ref-Value>
+		</ref>
+		
+		<!--DB LOGIN -->
+		<ref>
+			<Ref-Name>ASF_DB_ACCOUNT</Ref-Name>
+			<Ref-Value>ia_servicech</Ref-Value>
+		</ref>
+		<!--ASF_DB_PASSWORD -->
+		<ref>
+			<Ref-Name>ASF_DB_PASSWORD</Ref-Name>
+			<Ref-Value>ia_servicech</Ref-Value>
+		</ref>
+		<!--ASF_DB_DRIVER -->
+		<ref>
+			<Ref-Name>ASF_DB_DRIVER</Ref-Name>
+			<Ref-Value>oracle.jdbc.driver.OracleDriver</Ref-Value>
+		</ref>
+		<!--ASF_DATASOURCE -->
+		<ref>
+			<Ref-Name>ASF_DATASOURCE</Ref-Name>
+			<Ref-Value>ASF_DB_DataSource</Ref-Value>
+		</ref>
+		<!-- DB_CONNECTION_MODE-->
+		<!-- DATA_SOSURCE = 0
+			JDBC = 1 -->
+		<ref>
+			<Ref-Name>DB_CONNECTION_MODE</Ref-Name>
+			<Ref-Value>0</Ref-Value>
+		</ref>
+	</ENV_DB_SSI>
+
+	<ENV_DB_BSCS>
+		<!--BSCS DB URL -->
+		<ref>
+			<Ref-Name>BSCS_DB_URL</Ref-Name>
+			<Ref-Value>jdbc:oracle:thin:@10.69.101.61:1521:TSTBSCS6</Ref-Value>
+		</ref>
+		<!--DB LOGIN -->
+		<ref>
+			<Ref-Name>BSCS_DB_ACCOUNT</Ref-Name>
+			<Ref-Value>kgfox</Ref-Value>
+		</ref>
+		<!--DB_PASSWORD -->
+		<ref>
+			<Ref-Name>BSCS_DB_PASSWORD</Ref-Name>
+			<Ref-Value>holiday</Ref-Value>
+		</ref>
+		<!--BSCS_DB_DRIVER -->
+		<ref>
+			<Ref-Name>BSCS_DB_DRIVER</Ref-Name>
+			<Ref-Value>oracle.jdbc.driver.OracleDriver</Ref-Value>
+		</ref>
+		<!--BSCS_DATASOURCE -->
+		<ref>
+			<Ref-Name>BSCS_DATASOURCE</Ref-Name>
+			<Ref-Value>BSCS_DB_DataSource</Ref-Value>
+		</ref>
+		<!-- DB_CONNECTION_MODE-->
+		<!-- DATA_SOSURCE = 0
+			JDBC = 1 -->
+		<ref>
+			<Ref-Name>BSCS_DB_CONNECTION_MODE</Ref-Name>
+			<Ref-Value>1</Ref-Value>
+		</ref>
+	</ENV_DB_BSCS>
+	
+	<!-- 2008/02/29, add for eForm, begin -->
+	<ENV_URL_EFORM>
+		<ref>
+			<Ref-Name>EFORM_URL</Ref-Name>
+			<Ref-Value>http://10.64.32.239:50501/QCWEB/eform/WriteSession.jsp</Ref-Value>
+		</ref>
+	</ENV_URL_EFORM>
+	<ENV_DES_EFORM>
+		<ref>
+			<Ref-Name>EFORM_DES_KEY</Ref-Name>
+			<Ref-Value>eP9Mz7sq</Ref-Value>
+		</ref>
+	</ENV_DES_EFORM>
+	<ENV_DB_EFORM>
+		<!-- EFORM DB URL -->
+		<ref>
+			<Ref-Name>EFORM_DB_URL</Ref-Name>
+			<Ref-Value>jdbc:oracle:thin:@10.64.34.1:1560:ASFTEST</Ref-Value>
+		</ref>
+		<!-- DB LOGIN -->
+		<ref>
+			<Ref-Name>EFORM_DB_ACCOUNT</Ref-Name>
+			<Ref-Value>ia_servicech</Ref-Value>
+		</ref>
+		<!-- DB_PASSWORD -->
+		<ref>
+			<Ref-Name>EFORM_DB_PASSWORD</Ref-Name>
+			<Ref-Value>ia_servicech</Ref-Value>
+		</ref>
+		<!-- EFORM_DB_DRIVER -->
+		<ref>
+			<Ref-Name>EFORM_DB_DRIVER</Ref-Name>
+			<Ref-Value>oracle.jdbc.driver.OracleDriver</Ref-Value>
+		</ref>
+		<!-- EFORM_DATASOURCE -->
+		<ref>
+			<Ref-Name>EFORM_DATASOURCE</Ref-Name>
+			<Ref-Value>EFORM_DB_DataSource</Ref-Value>
+		</ref>
+		<!--
+          DB_CONNECTION_MODE
+          DATA_SOSURCE = 0
+          JDBC         = 1
+		-->
+		<ref>
+			<Ref-Name>EFORM_DB_CONNECTION_MODE</Ref-Name>
+			<Ref-Value>0</Ref-Value>
+		</ref>
+	</ENV_DB_EFORM>
+<!-- 2008/02/29, add for eForm, end -->	
+
+	<!-- 2008/04/29, add for 已退一租之加值服務之優惠信息 begin -->
+	<ENV_DB_IA_3G><!-- IA 3G DataSource -->
+		<ref>
+			<Ref-Name>IA_3G_DB_URL</Ref-Name>
+			<Ref-Value>jdbc:oracle:thin:@10.64.34.1:1560:ASFTEST</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>IA_3G_DB_ACCOUNT</Ref-Name>
+			<Ref-Value>IACB_USER</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>IA_3G_DB_PASSWORD</Ref-Name>
+			<Ref-Value>IACB_USER</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>IA_3G_DB_DRIVER</Ref-Name>
+			<Ref-Value>oracle.jdbc.driver.OracleDriver</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>IA_3G_DATASOURCE</Ref-Name>
+			<Ref-Value>IA_DB_DataSource</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>IA_3G_DB_CONNECTION_MODE</Ref-Name>
+			<Ref-Value>0</Ref-Value>
+		</ref>
+	</ENV_DB_IA_3G>
+	<!-- 2008/04/29, add for 已退一租之加值服務之優惠信息 end -->
+	
+	
+	<ENV_FTP_FMS>
+		<ref>
+			<Ref-Name>FMS_FTP_SERVER</Ref-Name>
+			<Ref-Value>10.64.35.203</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FMS_FTP_PORT</Ref-Name>
+			<Ref-Value>21</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FMS_FTP_UID</Ref-Name>
+			<Ref-Value>ssiuser</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FMS_FTP_PWD</Ref-Name>
+			<Ref-Value>ssiuser</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FMS_FTP_PATH</Ref-Name>
+			<Ref-Value>/opt/wls81/SSI_projects/SSI_III_Src</Ref-Value>
+		</ref>
+	</ENV_FTP_FMS>
+	
+	<ENV_DB_ADDON>
+                <ref>
+                        <Ref-Name>ADDON_DB_URL</Ref-Name>
+                        <Ref-Value>jdbc:oracle:thin:@10.64.34.1:1560:ASFTEST</Ref-Value>
+                </ref>
+                <ref>
+                        <Ref-Name>ADDON_DB_ACCOUNT</Ref-Name>
+                        <Ref-Value>ia_servicech</Ref-Value>
+                </ref>
+                <ref>
+                        <Ref-Name>ADDON_DB_PASSWORD</Ref-Name>
+                        <Ref-Value>ia_servicech</Ref-Value>
+                </ref>
+                <ref>
+                        <Ref-Name>ADDON_DB_DRIVER</Ref-Name>
+                        <Ref-Value>oracle.jdbc.driver.OracleDriver</Ref-Value>
+                </ref>
+                <ref>
+                        <Ref-Name>ADDON_DATASOURCE</Ref-Name>
+                        <Ref-Value>ASF_DB_DataSource</Ref-Value>
+                </ref>
+                <ref>
+                        <Ref-Name>ADDON_DB_CONNECTION_MODE</Ref-Name>
+                        <Ref-Value>1</Ref-Value>
+                </ref>
+        </ENV_DB_ADDON>
+        
+	<ENV_DB_ASF_BLACKLIST>
+        <ref>
+                <Ref-Name>ASF_BLACKLIST_DB_URL</Ref-Name>
+                <Ref-Value>jdbc:oracle:thin:@10.64.34.1:1560:ASFTEST</Ref-Value>
+        </ref>
+        <ref>
+                <Ref-Name>ASF_BLACKLIST_DB_ACCOUNT</Ref-Name>
+                <Ref-Value>FSENTRY</Ref-Value>
+        </ref>
+        <ref>
+                <Ref-Name>ASF_BLACKLIST_DB_PASSWORD</Ref-Name>
+                <Ref-Value>FSENTRY</Ref-Value>
+        </ref>
+        <ref>
+                <Ref-Name>ASF_BLACKLIST_DB_DRIVER</Ref-Name>
+                <Ref-Value>oracle.jdbc.driver.OracleDriver</Ref-Value>
+        </ref>
+        <ref>
+                <Ref-Name>ASF_BLACKLIST_DATASOURCE</Ref-Name>
+                <Ref-Value>FSENTRY_DB_DataSource</Ref-Value>
+        </ref>
+        <ref>
+                <Ref-Name>ASF_BLACKLIST_DB_CONNECTION_MODE</Ref-Name>
+                <Ref-Value>0</Ref-Value>
+        </ref>
+    </ENV_DB_ASF_BLACKLIST>
+
+	<ENV_IA_DB>
+		<!-- IA_DB_DATASOURCE -->
+		<ref>
+			<Ref-Name>IA_DB_DATASOURCE</Ref-Name>
+			<Ref-Value>IA_DB_DataSource</Ref-Value>
+		</ref>
+		
+		<ref>
+        <Ref-Name>IA_DB_CONNECTION_MODE</Ref-Name>
+        <Ref-Value>0</Ref-Value>
+    </ref>
+	</ENV_IA_DB>
+
+	<!-- 2006/12/19, add for Web Archive, begin -->
+	<ENV_DB_WA>
+		<!-- Web Archive CSR DB URL -->
+		<ref>
+			<Ref-Name>WA_CSR_DB_URL</Ref-Name>
+			<Ref-Value>jdbc:oracle:thin:@10.64.208.50:1521:webarc02</Ref-Value>
+		</ref>
+		<!--WA_CSR_DB LOGIN -->
+		<ref>
+			<Ref-Name>WA_CSR_DB_ACCOUNT</Ref-Name>
+			<Ref-Value>XXX</Ref-Value>
+		</ref>
+		<!--WA_CSR_DB_PASSWORD -->
+		<ref>
+			<Ref-Name>WA_CSR_DB_PASSWORD</Ref-Name>
+			<Ref-Value>XXX</Ref-Value>
+		</ref>
+		<!--WA_CSR_DB_DRIVER -->
+		<ref>
+			<Ref-Name>WA_CSR_DB_DRIVER</Ref-Name>
+			<Ref-Value>oracle.jdbc.driver.OracleDriver</Ref-Value>
+		</ref>
+		<!--WA_CSR_DATASOURCE -->
+		<ref>
+			<Ref-Name>WA_CSR_DATASOURCE</Ref-Name>
+			<Ref-Value>WA_DB_DataSource</Ref-Value>
+		</ref>
+		<!-- WA_CSR_DB_CONNECTION_MODE-->
+		<!-- DATA_SOSURCE = 0
+			JDBC = 1 -->
+		<ref>
+			<Ref-Name>WA_CSR_DB_CONNECTION_MODE</Ref-Name>
+			<Ref-Value>0</Ref-Value>
+		</ref>
+		<!-- Web Archive Log DB URL -->
+		<ref>
+			<Ref-Name>WA_LOG_DB_URL</Ref-Name>
+			<Ref-Value>jdbc:oracle:thin:@10.64.208.50:1521:webarc02</Ref-Value>
+		</ref>
+		<!--WA_LOG_DB LOGIN -->
+		<ref>
+			<Ref-Name>WA_LOG_DB_ACCOUNT</Ref-Name>
+			<Ref-Value>XXX</Ref-Value>
+		</ref>
+		<!--WA_LOG_DB_PASSWORD -->
+		<ref>
+			<Ref-Name>WA_LOG_DB_PASSWORD</Ref-Name>
+			<Ref-Value>XXX</Ref-Value>
+		</ref>
+		<!--WA_LOG_DB_DRIVER -->
+		<ref>
+			<Ref-Name>WA_LOG_DB_DRIVER</Ref-Name>
+			<Ref-Value>oracle.jdbc.driver.OracleDriver</Ref-Value>
+		</ref>
+		<!--WA_LOG_DATASOURCE -->
+		<ref>
+			<Ref-Name>WA_LOG_DATASOURCE</Ref-Name>
+			<Ref-Value>WA_DB_DataSource</Ref-Value>
+		</ref>
+		<!-- WA_LOG_DB_CONNECTION_MODE-->
+		<!-- DATA_SOSURCE = 0
+			JDBC = 1 -->
+		<ref>
+			<Ref-Name>WA_LOG_DB_CONNECTION_MODE</Ref-Name>
+			<Ref-Value>0</Ref-Value>
+		</ref>
+	</ENV_DB_WA>
+	<!-- 2006/12/19, add for Web Archive, end -->
+	<ENV_IA_DB>
+		<!--IA_DB_DATASOURCE -->
+		<ref>
+			<Ref-Name>IA_DB_DATASOURCE</Ref-Name>
+			<Ref-Value>IA_DB_DataSource</Ref-Value>
+		</ref>
+	</ENV_IA_DB>
+    <ENV_SSI_DB>
+    <!--SSI_DB_BATCH_DATASOURCE -->
+        <ref>
+            <Ref-Name>SSI_DB_BATCH_DATASOURCE</Ref-Name>
+            <Ref-Value>SSI_DB_BATCH_DataSource</Ref-Value>
+        </ref>
+    </ENV_SSI_DB>
+	<!--BIZ_ENTITY -->
+	<ENV_BIZENTITY>
+		<!--BIZENTITY_K -->
+		<ref>
+			<Ref-Name>BIZENTITY_K</Ref-Name>
+			<Ref-Value>KGT</Ref-Value>
+		</ref>
+		<!--BIZENTITY_F -->
+		<ref>
+			<Ref-Name>BIZENTITY_F</Ref-Name>
+			<Ref-Value>FET</Ref-Value>
+		</ref>
+	</ENV_BIZENTITY>
+	<!--SYSTEM -->
+	<ENV_SYSTEM>
+		<!--SYSTEM_HOST -->
+		<ref>
+			<Ref-Name>SYSTEM_HOST</Ref-Name>
+			<Ref-Value>10.64.35.203</Ref-Value>
+		</ref>
+		<!--SYSTEM_PORT -->
+		<ref>
+			<Ref-Name>SYSTEM_PORT</Ref-Name>
+			<Ref-Value>46512</Ref-Value>
+		</ref>
+		<!--SYSTEM_HOST -->
+		<ref>
+			<Ref-Name>SYSTEM_HOST2</Ref-Name>
+			<Ref-Value>10.64.35.203</Ref-Value>
+		</ref>
+		<!--SYSTEM_PORT -->
+		<ref>
+			<Ref-Name>SYSTEM_PORT2</Ref-Name>
+			<Ref-Value>46512</Ref-Value>			
+		</ref>
+		<!--SYSTEM_DOMAIN -->
+		<ref>
+			<Ref-Name>SYSTEM_DOMAIN</Ref-Name>
+			<Ref-Value>FAREASTONE.COM.TW</Ref-Value>
+		</ref>
+		<!--WLS_LOGIN -->
+		<ref>
+			<Ref-Name>WLS_LOGIN</Ref-Name>
+			<Ref-Value>weblogic</Ref-Value>
+		</ref>
+		<!--SYSTEM_HOST -->
+		<ref>
+			<Ref-Name>WLS_PASSWORD</Ref-Name>
+			<Ref-Value>weblogic</Ref-Value>
+		</ref>
+	</ENV_SYSTEM>
+	<!--ENV_ADDRESS_DECODE -->
+	<ENV_ADDRESS_DECODE>
+	    <!--
+	      | 郵遞區號欄位驗證, 查詢
+	     -->
+		<!--BIZENTITY_K -->
+		<ref>
+			<Ref-Name>JSP_URL</Ref-Name>
+			<Ref-Value>
+			<![CDATA[
+			http://10.68.66.111/GetZipCode/GetZipCode.aspx?city=&region=&address=
+			]]>
+			</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>URL_ENCODE</Ref-Name>
+			<Ref-Value>BIG5</Ref-Value>
+		</ref>
+	</ENV_ADDRESS_DECODE>
+	<!--CHANNEL -->
+	<ENV_CHANNEL>
+		<!--CHANNEL_RETAIL -->
+		<ref>
+			<Ref-Name>CHANNEL_RETAIL</Ref-Name>
+			<Ref-Value>R</Ref-Value>
+		</ref>
+		<!--CHANNEL_BOG -->
+		<ref>
+			<Ref-Name>CHANNEL_BOG</Ref-Name>
+			<Ref-Value>B</Ref-Value>
+		</ref>
+		<!--CHANNEL_FRANCHISE -->
+		<ref>
+			<Ref-Name>CHANNEL_FRANCHISE</Ref-Name>
+			<Ref-Value>F</Ref-Value>
+		</ref>
+		<!--CHANNEL_COPARTNER -->
+		<ref>
+			<Ref-Name>CHANNEL_COPARTNER</Ref-Name>
+			<Ref-Value>C</Ref-Value>
+		</ref>
+        <!--CHANNEL_WALA 2006/08/01 Add by Rita For WALA-->
+		<ref>
+			<Ref-Name>CHANNEL_WALA</Ref-Name>
+			<Ref-Value>W</Ref-Value>
+		</ref>
+	</ENV_CHANNEL>
+	<!-- URM_POOL -->
+	<ENV_URM_POOL>
+		<!--FET_BE_ID -->
+		<ref>
+			<Ref-Name>FET_BE_ID</Ref-Name>
+			<Ref-Value>110154</Ref-Value>
+		</ref>
+		<!--KGT_BE_ID -->
+		<ref>
+			<Ref-Name>KGT_BE_ID</Ref-Name>
+			<Ref-Value>110155</Ref-Value>
+		</ref>
+		<!--URM_POOL_ID -->
+		<ref>
+			<Ref-Name>URM_POOL_ID</Ref-Name>
+			<Ref-Value>20</Ref-Value>
+		</ref>
+		<!--URM_RESOURCE_TYPE -->
+		<ref>
+			<Ref-Name>URM_RESOURCE_TYPE</Ref-Name>
+			<Ref-Value>MSISDN</Ref-Value>
+		</ref>
+		<!--URM_PRODUCT_TYPE -->
+		<ref>
+			<Ref-Name>URM_PRODUCT_TYPE</Ref-Name>
+			<Ref-Value>Post-paid</Ref-Value>
+		</ref>
+	</ENV_URM_POOL>
+	<ENV_SUBSCRIBER_LEVEL>
+		<ref>
+			<Ref-Name>VIP_CUSTOMER_LIST</Ref-Name>
+			<Ref-Value>AAA+++|AAAA+++</Ref-Value>
+		</ref>
+	</ENV_SUBSCRIBER_LEVEL>
+	<BATCH_TASK_PROCESSES>
+		<ref>
+			<Ref-Name>TASK_CONTRACT</Ref-Name>
+			<Ref-Value>TASK_CONTRACT</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_PRICE_PLAN</Ref-Name>
+			<Ref-Value>TASK_PRICE_PLAN</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_FOLLOW_UP_TASK_MEMO</Ref-Name>
+			<Ref-Value>TASK_FOLLOW_UP_TASK_MEMO</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_FOLLOW_UP_TASK</Ref-Name>
+			<Ref-Value>TASK_FOLLOW_UP_TASK</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_FUTURE_TASK</Ref-Name>
+			<Ref-Value>TASK_FUTURE_TASK</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_SW_REQUEST</Ref-Name>
+			<Ref-Value>TASK_SW_REQUEST</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_SCA_TASK</Ref-Name>
+			<Ref-Value>TASK_SCA_TASK</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_SERVICE_DETAILS</Ref-Name>
+			<Ref-Value>TASK_SERVICE_DETAILS</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_SERVICE_PARAMETERS</Ref-Name>
+			<Ref-Value>TASK_SERVICE_PARAMETERS</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_CUSTOMER_PROFILE</Ref-Name>
+			<Ref-Value>TASK_CUSTOMER_PROFILE</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_NETWORK_OPERATION</Ref-Name>
+			<Ref-Value>TASK_NETWORK_OPERATION</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_CHANGE_SIM</Ref-Name>
+			<Ref-Value>TASK_CHANGE_SIM</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_CHANGE_MSISDN</Ref-Name>
+			<Ref-Value>TASK_CHANGE_MSISDN</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_MEMO</Ref-Name>
+			<Ref-Value>TASK_MEMO</Ref-Value>
+		</ref>
+		<!-- SSI P3 2007/01/16
+        Due to this task is covered FET/KGT, the task name should be used the original one!
+        For KGT, the records in this table should be kept the information regarding to
+        customer profile querying...
+        <ref>
+            <Ref-Name>TASK_MEMO_F</Ref-Name>
+            <Ref-Value>TASK_MEMO_F</Ref-Value>
+        </ref>
+		-->
+		<ref>
+			<Ref-Name>TASK_DATA_SERVICE_DETAILS</Ref-Name>
+			<Ref-Value>TASK_DATA_SERVICE_DETAILS</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_OU_SERVICE_DETAILS</Ref-Name>
+			<Ref-Value>TASK_OU_SERVICE_DETAILS</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_ACCOUNT_TRANSFER</Ref-Name>
+			<Ref-Value>TASK_ACCOUNT_TRANSFER</Ref-Value>
+		</ref>
+		<!-- SSI P3 2007/01/16 Begin -->
+        <ref>
+            <Ref-Name>TASK_MEMO_K</Ref-Name>
+            <Ref-Value>TASK_MEMO_K</Ref-Value>
+        </ref>
+        <ref>
+            <Ref-Name>TASK_UPDATE_MEMO_K</Ref-Name>
+            <Ref-Value>TASK_UPDATE_MEMO_K</Ref-Value>
+        </ref>
+        <ref>
+            <Ref-Name>TASK_UPDATE_MEMO_STATUS_K</Ref-Name>
+            <Ref-Value>TASK_UPDATE_MEMO_STATUS_K</Ref-Value>
+        </ref>
+        <ref>
+            <Ref-Name>TASK_FOLLOW_UP_TASK_ADD</Ref-Name>
+            <Ref-Value>TASK_FOLLOW_UP_TASK_ADD</Ref-Value>
+        </ref>
+		<ref>
+			<Ref-Name>TASK_BILLINFO_SUSPEND_COLLECTION</Ref-Name>
+			<Ref-Value>TASK_BILLINFO_SUSPEND_COLLECTION</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>TASK_BILLINFO_RESEND_BILL</Ref-Name>
+			<Ref-Value>TASK_BILLINFO_RESEND_BILL</Ref-Value>
+		</ref>
+		<!-- 3G-Hybrid 餘額沖銷 added by Terry Chen #2007/08/29 -->
+		<ref>
+			<Ref-Name>TASK_RECHARGE_TO_PAYMENT</Ref-Name>
+			<Ref-Value>TASK_RECHARGE_TO_PAYMENT</Ref-Value>
+		</ref>
+		<!-- #SR29377 Sim2Travel 2007/10/15 start -->
+		<ref>
+			<Ref-Name>TASK_S2T_CHANGE_SIM</Ref-Name>
+			<Ref-Value>TASK_S2T_CHANGE_SIM</Ref-Value>
+		</ref>
+		<!-- #SR29377 Sim2Travel 2007/10/15 End -->
+		<!-- SR#29268 added by Terry Chen #2007/11/20 -->
+		<ref>
+			<Ref-Name>TASK_UPDATE_RECHARGE_STATUS</Ref-Name>
+			<Ref-Value>TASK_UPDATE_RECHARGE_STATUS</Ref-Value>
+		</ref>		
+		<!-- SSI P3 2007/01/16 End -->
+		<!-- 限制每次從DB讀取出的筆數 -->
+		<ref>
+			<Ref-Name>BATCH_TASK_ROWNUM</Ref-Name>
+			<Ref-Value>2000</Ref-Value>
+		</ref>
+	</BATCH_TASK_PROCESSES>
+	<BATCH_ENV>
+		<ref>
+			<Ref-Name>BATCH_STOP_FILE</Ref-Name>
+			<Ref-Value>D:\\Project\\SSI_BatchManager\\STOP</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>BATCH_LOG_PATH</Ref-Name>
+			<Ref-Value>D:\\Project\\SSI_BatchManager\\logs</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>BATCH_LOG_ARCHIVE_PATH</Ref-Name>
+			<Ref-Value>D:\\Project\\SSI_BatchManager\\archive-logs</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>BATCH_LOG_ARCHIVE_PATH_PATTERN</Ref-Name>
+			<Ref-Value>yyyyMMdd</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>BATCH_LOG_ARCHIVE_FILE_PATTERN</Ref-Name>
+			<Ref-Value>yyyyMMdd.HHmmss</Ref-Value>
+		</ref>
+		<ref>
+		    <Ref-Name>BATCH_SOCKET_IP</Ref-Name>
+			<Ref-Value>127.0.0.1</Ref-Value>
+		</ref>
+		<ref>
+		    <Ref-Name>BATCH_SOCKET_PORT</Ref-Name>
+			<Ref-Value>12005</Ref-Value>
+		</ref>
+	</BATCH_ENV>
+
+	<BATCH_COMMANDER_ENV>
+		<ref>
+		    <Ref-Name>ALERT_LIST_FILE</Ref-Name>
+			<Ref-Value>alert-list.xml</Ref-Value>
+		</ref>
+		<ref>
+		    <Ref-Name>PENDING_TASK_THRESHOLD</Ref-Name>
+			<Ref-Value>200</Ref-Value>
+		</ref>
+		<ref>
+		    <Ref-Name>MAIL_HOST</Ref-Name>
+			<Ref-Value>10.64.16.93</Ref-Value>
+		</ref>
+		<ref>
+		    <Ref-Name>SMS_HOST</Ref-Name>
+			<Ref-Value>10.68.66.110</Ref-Value>
+		</ref>
+		<ref>
+		    <Ref-Name>SMS_PORT</Ref-Name>
+			<Ref-Value>3322</Ref-Value>
+		</ref>
+		<ref>
+		    <Ref-Name>START_BATCH_COMMAND</Ref-Name>
+			<Ref-Value>D:\\Project\\SSI_BatchManager\\Run_SSI_BatchManager.bat</Ref-Value>
+		</ref>
+	</BATCH_COMMANDER_ENV>
+
+	<VAS>
+	  <ref>
+			<Ref-Name>KGT_DATASERVICE_MMS_SNCODE</Ref-Name>
+			<Ref-Value>136</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_IGOGO_SPCODE</Ref-Name>
+			<Ref-Value>K058,K059,K060,K061,K068,K070,K076,K077,K078,K080</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_IMODE_SPCODE</Ref-Name>
+			<Ref-Value>K062,K063,K065,K079,K081,K082</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_TURBOIGOGO_SPCODE</Ref-Name>
+			<Ref-Value>K064,K066</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_DATASERVICE_GPRS_OFFERID</Ref-Name>
+			<Ref-Value>112759,112758,112644,112643,112642,112679,118952,126313,126314</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_DATASERVICE_IMODE_OFFERID</Ref-Name>
+			<Ref-Value>121738,112760,118380,118936,118937,118935,122423,126315,126316</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_3G_DATASERVICE_GPRS_OFFERID</Ref-Name>
+			<Ref-Value>118952,126317,126318,118946,131218,133019,134396,134540,134541,135609</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_3G_DATASERVICE_IMODE_OFFERID</Ref-Name>
+			<Ref-Value>118936,118937,118935,122423,126319,126320</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_TRANSIGOGO_DETAILID</Ref-Name>
+			<Ref-Value>DS0001</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_TRANSIMODE_DETAILID</Ref-Name>
+			<Ref-Value>DS0002</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_TRANSTURBOIGOGO_DETAILID</Ref-Name>
+			<Ref-Value>DS0003</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_ADDMMS_DETAILID</Ref-Name>
+			<Ref-Value>DS0004</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_REVMMS_DETAILID</Ref-Name>
+			<Ref-Value>DS0005</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_DATASERVICE_TRANSGPRS_DETAILID</Ref-Name>
+			<Ref-Value>DS0006</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_DATASERVICE_TRANSIMODE_DETAILID</Ref-Name>
+			<Ref-Value>DS0007</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_ADDIGOGO_DETAILID</Ref-Name>
+			<Ref-Value>DS0008</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_ADDIMODE_DETAILID</Ref-Name>
+			<Ref-Value>DS0009</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_ADDTURBOIGOGO_DETAILID</Ref-Name>
+			<Ref-Value>DS0010</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_ADDTURBOIGOGO_TMCODE</Ref-Name>
+			<Ref-Value>P074</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DATASERVICE_ADDTURBOIGOGO_TMNAME</Ref-Name>
+			<Ref-Value>TURBO IGOGO</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_APN1_IMode_GPRS</Ref-Name>
+			<Ref-Value>5</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_APN1_FETNET01</Ref-Name>
+			<Ref-Value>1</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_MAJORCARD_SPCODE</Ref-Name>
+			<Ref-Value>001</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_MAJORCARD_SPNAME</Ref-Name>
+			<Ref-Value>主卡基本服務組合</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_SUBCARD_SPCODE</Ref-Name>
+			<Ref-Value>015</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_SUBCARD_SPNAME</Ref-Name>
+			<Ref-Value>副卡基本服務組合</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_DDB_OFFERID</Ref-Name>
+			<Ref-Value>112595,119903</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_2G_DDB_OFFERID</Ref-Name>
+			<Ref-Value>112595</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_3G_DDB_OFFERID</Ref-Name>
+			<Ref-Value>119903</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_DDB_OFFERID</Ref-Name>
+			<Ref-Value>V038</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_OLDMAN_OFFERID</Ref-Name>
+			<Ref-Value>120832,120831</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FET_RADIOTYPE_GROUPID</Ref-Name>
+			<Ref-Value>G001,G003,G005,G007</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_NONCANCEL_ODB_OFFERID</Ref-Name>
+			<Ref-Value>V043,V069,V150</Ref-Value>
+		</ref>
+        <!-- 2007/03/29, add for APN rule - begin -->
+        <ref>
+        <Ref-Name>BASE_MMS_SERVICE_ID</Ref-Name>
+            <Ref-Value>V136</Ref-Value>
+        </ref>
+        <ref>
+            <Ref-Name>MMS_SERVICE_ID</Ref-Name>
+        <Ref-Value>V136,V139</Ref-Value>
+        </ref>
+        <!-- 2007/03/29, add for APN rule - end -->
+        <!-- 2008/12/12,updated for DATA CARD 250 by Terry Chen-->
+        <!-- 2007/06/01, added for DATA CARD 775 by Terry Chen-->
+        <ref>
+            <Ref-Name>DATA_CARD</Ref-Name>
+            <Ref-Value>118946,135609</Ref-Value>
+        </ref>
+        <!-- End -->
+        <!-- 2007/10/08, add for Sim2Travel - start -->    
+        <ref>
+			<Ref-Name>SIM2TRAVEL_BASEIC_OFFERID</Ref-Name>
+			<Ref-Value>130530,130533,170</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>SIM2TRAVEL_EXTEND_OFFERID</Ref-Name>
+			<Ref-Value>130531,130532,171</Ref-Value>
+		</ref>
+		<!-- 2007/10/08, add for Sim2Travel - end -->
+	        <!-- 2007/10/29, added for parent child offer by Terry Chen-->
+		<ref>
+			<Ref-Name>PARENT_CHILD_OFFERID</Ref-Name>
+			<Ref-Value>121146,121147,121148,121149,121150,121151</Ref-Value>
+		</ref>
+	        <!-- 2007/10/29, added for parent child offer by Terry Chen-->
+	  <ref>
+	      <Ref-Name>FET_DATASERVICE_SME_OFFERID</Ref-Name>
+	      <Ref-Value>134420,134944,134945,134947,134948,135033</Ref-Value>
+   </ref>
+
+ 	</VAS>
+	<CANCEL_SUBSCRIBER>
+	    <ref>
+			<Ref-Name>IMODE_DATASERVICE_SPCODE</Ref-Name>
+			<Ref-Value>062,063,065,067,079,081,082</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>GPRS_DATASERVICE_SPCODE</Ref-Name>
+			<Ref-Value>058,059,060,061,064,066,068,070,071,072,073,074,075,076,077,078,080</Ref-Value>
+		</ref>
+	</CANCEL_SUBSCRIBER>
+	<CHANGE_MSISDN>
+	    <ref>
+	        <!-- GUI, 門號清單顯示數量-->
+			<Ref-Name>MSISDN_DISPLAY_SIZE</Ref-Name>
+			<Ref-Value>50</Ref-Value>
+		</ref>
+	    <ref>
+	        <!-- IA門號清單數量上限(0表示無上限)-->
+			<Ref-Name>IA_MSISDN_SIZE</Ref-Name>
+			<Ref-Value>50</Ref-Value>
+		</ref>
+	    <ref>
+	        <!-- 店組IA門號清單顯示數量 (0表示無上限)-->
+			<Ref-Name>STORE_MSISDN_SIZE</Ref-Name>
+			<Ref-Value>0</Ref-Value>
+		</ref>
+	    <ref>
+    	    <!-- 工單門號清單顯示數量-->
+			<Ref-Name>URM_DISPLAY_SIZE</Ref-Name>
+			<Ref-Value>500</Ref-Value>
+		</ref>
+        <ref>
+    	    <!-- FET ACIT POOL-->
+			<Ref-Name>ACTI_POOL_FET</Ref-Name>
+			<Ref-Value>IACB_USER.ACTI_POOL</Ref-Value>
+		</ref>
+	    <ref>
+    	    <!-- KGT ACIT POOL-->
+			<Ref-Name>ACTI_POOL_KGT</Ref-Name>
+			<Ref-Value>IACB_USER.ACTI_POOL_KGT</Ref-Value>
+		</ref>
+	</CHANGE_MSISDN>
+	<SEARCH_CUSTOMER>
+	    <ref>
+			<!-- 客戶資料筆數過多, 限制只能透過企業客戶客服做異動 -->
+			<Ref-Name>ENT_CUSTOMER_ROCID</Ref-Name>
+			<!-- 若要增加限制之證號, 請以','分隔 -->
+			<Ref-Value>89459253</Ref-Value>
+		</ref>
+	</SEARCH_CUSTOMER>
+	<LOG_FILTER>
+	     <ref>
+	         <Ref-Name>PERFORMACE_IGNORE_SET</Ref-Name>
+	         <!-- 於Performace Log Profile中忽略設定的API
+	         	  eg01: 指定特定的API Method,  ${packageName}+${className}+${methodName}
+	         	  eg02: 指定特定的Class 所有API ${packageName}+${className}+ ".*"
+	         	  eg02: 指定特定的package以下所有API ${packageName}+".*"
+	          -->
+	         <Ref-Value>
+	           <![CDATA[
+ 	            com.fet.ssi.utility.authorization.*
+				com.fet.ssi.utility.cache.*
+				com.fet.ssi.utility.SystemUtility.getMessageDesc
+				com.fet.ssi.dao.SystemUtilityDao.findMessageDesc
+	           ]]>
+	         </Ref-Value>
+	     </ref>
+	</LOG_FILTER>
+    <!-- 20060926 ADD FOR CONTRACT RULE-->
+    <CONTRACT>
+	    <ref>
+			<Ref-Name>FET_ACTIVATION_PM_TYPE</Ref-Name>
+			<Ref-Value>A</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_MIGRATE_FET_PM_TYPE</Ref-Name>
+			<Ref-Value>KX,KY</Ref-Value>
+		</ref>
+		<!-- 2006/10/19 Add for releasing contract reason code -->
+		<ref>
+			<Ref-Name>FET_CONTRACT_REASON_CODE</Ref-Name>
+			<Ref-Value>8</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>KGT_CONTRACT_REASON_CODE</Ref-Name>
+			<Ref-Value>10</Ref-Value>
+		</ref>
+		<!-- 2006/10/19 Add for releasing contract reason code -->
+	</CONTRACT>
+    <!-- 20060926 ADD FOR CHANGE_PRICE_PLAN RULE-->
+    <CHANGE_PRICE_PLAN>
+	    <ref>
+			<Ref-Name>IMODE_300</Ref-Name>
+			<Ref-Value>118936</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>IMODE</Ref-Name>
+			<Ref-Value>121738,112760,118380,118935,118936,118937,122423</Ref-Value>
+		</ref>
+        <ref>
+            <!-- 任意網 -->
+			<Ref-Name>RANDOM_NETWORK</Ref-Name>
+			<Ref-Value>121155,121171,121159,121175,121167,121163,121156,121172,121160,121176,121168,121164,121157,121173,121161,121177,121169,121165,121158,121174,121162,121178,121170,121166,121202,121223,121195,121230,121216,121209,121198,121219,121191,121212,121205,121226,121199,121220,121192,121227,121213,121206,121200,121221,121193,121228,121214,121207,121201,121222,121229,121215,121208,121194,121204,121225,121197,121232,121218,121211,122540,122542,122541,122547,122544,122545,121203,121224,121196,121231,121217,121210</Ref-Value>
+		</ref>
+        <ref>
+            <!-- 遠傳相片分享服務 -->
+			<Ref-Name>DPF</Ref-Name>
+			<Ref-Value>134932,134935,134936,134937</Ref-Value>
+		</ref>
+        <ref>
+            <!-- 雙網資費 -->
+			<Ref-Name>DOUBLE_NETWORK_PP</Ref-Name>
+			<Ref-Value>118373,113201,120975,118372,121469,120555,118931,118913,118914,120976,118915,121470</Ref-Value>
+		</ref>
+        <ref>
+			<Ref-Name>FILTER_PP_2F</Ref-Name>
+			<Ref-Value>113208,103399,113200,113209,113210,113211,113212,113213,113214,113215,113220,113221,113222,118900,119860,120447,120448,120449,120450,120451,120452,119952,122145,122707,122621,122694,131231</Ref-Value>
+		</ref>
+        <ref>
+			<Ref-Name>FILTER_PP_3F</Ref-Name>
+			<Ref-Value>120555,118931,122424,118949,126102,126152,125620,128008,125188</Ref-Value>
+		</ref>
+        <ref>
+			<Ref-Name>FILTER_PP_2K</Ref-Name>
+			<Ref-Value>032,033,034,035,038,041,042,043,046,047,053,054,055,060,061,062,063,067,068,071,074,076,077,079,080,081,082,101</Ref-Value>
+		</ref>
+        <ref>
+			<Ref-Name>ITALK_PP</Ref-Name>
+			<Ref-Value>121093,121094,121095,121096,121097</Ref-Value>
+		</ref>
+        <ref>
+            <!-- 多媒體 offerid -->
+			<Ref-Name>MULTI_MEDIA_OFFERID</Ref-Name>
+			<Ref-Value>118917,122363,118916</Ref-Value>
+		</ref>
+        <ref>
+            <!-- 資費為多媒體系列 -->
+			<Ref-Name>OLD_MULTI_MEDIA_PP</Ref-Name>
+			<Ref-Value>118931,118913,118914,120976,118915,120555</Ref-Value>
+		</ref>
+        <ref>
+            <!-- Hybrid offerid -->
+			<Ref-Name>HYBRID_PP</Ref-Name>
+			<Ref-Value>130063,130064</Ref-Value>
+		</ref>		
+        <ref>
+            <!-- 新資費為多媒體系列-->
+			<Ref-Name>MULTI_MEDIA_PP</Ref-Name>
+			<Ref-Value>118917,122363,118916</Ref-Value>
+		</ref>
+        <ref>
+            <!-- 新資費為哈啦頭家系列-->
+			<Ref-Name>HALA_PP</Ref-Name>
+			<Ref-Value>133926</Ref-Value>
+		</ref>
+        <ref>
+            <!-- 門號為K時,ServiceId符合該值的,則表示為FUTURE TASK中的CHANGE PRICE PLAN(20061011 add) -->
+			<Ref-Name>CHANGE_PP_FUTURE_TASK_K</Ref-Name>
+			<Ref-Value>101</Ref-Value>
+		</ref>
+		<!-- Add by Jeff, 2006/10/24 for loyalty change price plan validation -->
+	    <ref>
+			<Ref-Name>CPP_LOYALTY_CHANNEL_F</Ref-Name>
+			<Ref-Value>LOYALTY01</Ref-Value>
+		</ref>
+	    <ref>
+			<Ref-Name>CPP_LOYALTY_OPID_F</Ref-Name>
+			<Ref-Value>LOYALTY01</Ref-Value>
+		</ref>
+	    <ref>
+			<Ref-Name>CPP_LOYALTY_PASSWD_F</Ref-Name>
+			<Ref-Value>87654321</Ref-Value>
+		</ref>
+		<!-- Need more clarification -->
+	    <ref>
+			<Ref-Name>CPP_LOYALTY_OPID_K</Ref-Name>
+			<Ref-Value>LOYALTY01</Ref-Value>
+		</ref>
+	    <ref>
+			<Ref-Name>CPP_LOYALTY_PASSWD_K</Ref-Name>
+			<Ref-Value>87654321</Ref-Value>
+		</ref>
+		<!-- Add by Jeff, 2006/10/24 for loyalty change price plan validation -->
+		<!-- for DPF, SR#36928, added by Terry Chen #2008/10/03 begin-->
+	    <ref>
+			<Ref-Name>DPF_PROMOTION</Ref-Name>
+			<Ref-Value>DPA000NXN0N3,DPB00ENXN0Y3,DPC00ENXN0Y3,DPD00ENXN0Y3</Ref-Value>
+		</ref>
+		<!-- for DPF, SR#36928, added by Terry Chen #2008/10/03 end-->
+	</CHANGE_PRICE_PLAN>
+    <!-- 2006/12/25 ADD FOR KGT REPRINT BILL -->
+    <KGT_REPRINT_BILL>
+        <ref>
+            <Ref-Name>BVIEWER_URL</Ref-Name>
+            <Ref-Value>http://online1/bscs/multibill/billresponse.asp</Ref-Value>
+        </ref>
+    </KGT_REPRINT_BILL>
+	<!-- 2007/01/12	ADD	FOR	FET	REPRINT	BILL -->
+	<FET_REPRINT_BILL>
+		<ref>
+			<Ref-Name>WA_WEB_URL</Ref-Name>
+			<Ref-Value>http://ebpp.fetnet.net/EBPP/Login_CSR.jsp</Ref-Value>
+		</ref>
+	</FET_REPRINT_BILL>
+	<!-- 20070102 added by Terry for 工單整合-->
+	 <TT_AWS>
+	 	<!--工單查詢-->
+	 	<ref>
+	   		<Ref-Name>TT_AWS_URL_QUERY</Ref-Name>
+	   		<Ref-Value>http://sitiomweb/Helpdesk/INTT/New_TT/New_TT_Search.asp</Ref-Value>
+	  	</ref>
+	  	<!--新增非網路類工單-->
+	     	<ref>
+	   		<Ref-Name>TT_AWS_URL_NEW</Ref-Name>
+	   		<Ref-Value>http://sitiomweb/Helpdesk/INTT/New_TT/Helpdesk_new_TT_Form.asp</Ref-Value>
+	  	</ref>
+	 </TT_AWS>
+	<RENTAL_INFO>
+	 	<!--rental-->
+	 	<ref>
+	   		<Ref-Name>RENTAL_URL</Ref-Name>
+	   		<Ref-Value>http://pc-cmsap01t/RENTALSYSTEM/SPTORENTAL.aspx</Ref-Value>
+	  	</ref>	
+	  	<ref>
+	   		<Ref-Name>RENTAL_DES_KEY</Ref-Name>
+	   		<Ref-Value>eP9Mz7sq</Ref-Value>
+	  	</ref>
+	  	<ref>
+	   		<Ref-Name>RENTAL_BUTTON</Ref-Name>
+	   		<Ref-Value>
+	   		    <![CDATA[
+	   		     EmpNo=EmpNo2&LoginId=LoginId2&StoreNo=StoreNo2&ActionId=OSS_O&Op=OP2&SubscriberId=SUBSCRIBERID2&TimeStamp=TimeStamp2
+	   		    ]]>
+	   		</Ref-Value>
+	  	</ref>	  	  	
+	 </RENTAL_INFO>
+	<!-- 20070508 added by Terry for test security-->
+	<SECURITY>
+		<ref>
+			<Ref-Name>AUTH_TEST_URL_PATTERN</Ref-Name>
+	        	<Ref-Value>
+		        <![CDATA[
+	 	            http://ia03p:46007/ServiceIntegrationWeb/test
+	 	            http://ia04p:46007/ServiceIntegrationWeb/test
+	 	            http://10.68.66.4:46007/ServiceIntegrationWeb/test
+	 	            http://10.68.66.5:46007/ServiceIntegrationWeb/test
+	 	            http://localhost:7001/ServiceIntegrationWeb/test
+	 	            http://localhost:9900/ServiceIntegrationWeb/test
+	 	            http://10.64.35.203:46502/ServiceIntegrationWeb/test
+	 	            http://10.64.35.203:46512/ServiceIntegrationWeb/test
+	 	            http://10.64.35.203:46522/ServiceIntegrationWeb/test
+	 	            http://10.64.35.203:46557/ServiceIntegrationWeb/test
+	 	            http://10.64.35.203:46558/ServiceIntegrationWeb/test
+	 	            http://10.64.32.239:46502/ServiceIntegrationWeb/test
+		        ]]>
+	        	</Ref-Value>
+	    	</ref>
+	</SECURITY>
+
+	<!-- 20070620 added by Terry for Report-->
+	<REPORT>
+		<ref>
+	   		<Ref-Name>DATE_PERIOD_ADMIN</Ref-Name>
+	   		<Ref-Value>7</Ref-Value>
+	  	</ref>
+		<ref>
+	   		<Ref-Name>DATE_PERIOD_STORE</Ref-Name>
+	   		<Ref-Value>7</Ref-Value>
+	  	</ref>
+	</REPORT>
+	<!-- 20070822 #SR28440 added by Rita -->
+	<FORBIDDEN_SIM>
+		<ref>
+			<Ref-Name>FORBI_EFFECTIVE_DATE</Ref-Name>
+			<Ref-Value>2007/07/01</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>FORBI_EXPIR_DATE</Ref-Name>
+			<Ref-Value>2008/06/30</Ref-Value>
+		</ref>
+	</FORBIDDEN_SIM>	
+	<!-- 20071228 #SR31133 Happy Go, added by Terry Chen -->
+	<ENV_DDIM>
+		<!--DDIM SERVER -->
+		<ref>
+			<Ref-Name>DDIM_SERVER</Ref-Name>
+			<Ref-Value>isusrv:8800</Ref-Value>
+		</ref>
+		<!--DDIM VENDOR -->
+		<ref>
+			<Ref-Name>DDIM_VENDOR</Ref-Name>
+			<Ref-Value>FETSSI</Ref-Value>
+		</ref>
+	</ENV_DDIM>
+	<!-- 20080313 #SR for EBPP, added by Terry Chen -->
+	<ENV_EBPP>
+		<ref>
+			<Ref-Name>EBPP_CHANNEL_ID</Ref-Name>
+			<Ref-Value>IA</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>EBPP_USER_ID</Ref-Name>
+			<Ref-Value>SSI</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>ConnEBPPTimeOut</Ref-Name>
+			<Ref-Value>60000</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>EBPP_End_Point</Ref-Name>
+			<Ref-Value>http://10.64.32.88:7001/EBPP/axis/Soap002</Ref-Value>
+		</ref>
+		<ref>
+			<Ref-Name>EBPP_SOAP_KEY</Ref-Name>
+			<Ref-Value>1231231230123456</Ref-Value>
+		</ref>
+	</ENV_EBPP>		
+</SSI-System>
+

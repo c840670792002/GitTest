@@ -1,0 +1,18 @@
+html { color: #000; font-size: 1em; line-height: 1.2; }
+body, td, th, div, h3, a, li { font-family: "微軟正黑體"; }
+/* CSS Document */
+.producttable{ font-size: 15px; color: #666; font-family: "微軟正黑體"; }
+.producttable th{ font-size: 18px; color: #FFF; background-color: #999; text-align: center; font-family: "微軟正黑體"; }
+.producsub{ background-color: #EEE; }
+.producttable td.producsub{ background-color: #EEE; }
+.producttable ol{ margin: 0px; padding-top: 0px; padding-bottom: 0px; padding-left: 20px; }
+.producttable a{ color: #000; text-decoration: underline; }
+@media screen and (max-width: 49em) {
+.producttable{ font-size: 13px; line-height: 18px; }
+.producttable th{ font-size: 15px;  }
+}
+
+.infobox{ background-color: #F7F7F7; margin: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; }
+.infobox h3{ font-size: 18px; color: #FFF; background-color: #999; padding: 10px; display: block; width: 100px; text-align: center; margin: 0px; }
+.infobox ol{ margin-top: 10px; margin-right: 20px; margin-bottom: 10px; margin-left: 40px; padding-top: 10px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
+.infobox ol li{ font-size: 14px; line-height: 24px; }

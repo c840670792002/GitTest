@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.fet.com.tw/ITSOA/schemas/Common-Domain/SharedResources/XSD/Base/Schema.xsd2" xmlns:ns1="http://www.tibco.com/schemas/CRM-Billing/SharedResources/XSD/Base/Imported/Schema.xsd" xmlns:tns="http://services.biz.crm.esb.fet.com/CRMBillInquiryBizService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://www.tibco.com/schemas/CRM-BillingBizServices/SharedResources/XSD/Schema.xsd" xmlns:jms="http://www.tibco.com/namespaces/ws/2004/soap/binding/JMS" xmlns:soap1="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:jndi="http://www.tibco.com/namespaces/ws/2004/soap/apis/jndi" name="Untitled" targetNamespace="http://services.biz.crm.esb.fet.com/CRMBillInquiryBizService">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/CRM-Billing/SharedResources/XSD/Base/Imported/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/CRM-Billing/SharedResources/XSD/Base/Imported/Schema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="AbstractProcessResult">
+                <xs:sequence>
+                    <xs:element name="status" nillable="true" type="ns1:ProcessStatus" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AccountNoInfo">
+                <xs:sequence>
+                    <xs:element name="accountNumber" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AgreementNoInfo">
+                <xs:sequence>
+                    <xs:element name="agreementNumber" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfCm9AgrPromoMaster">
+                <xs:sequence>
+                    <xs:element name="Cm9AgrPromoMaster" nillable="true" type="ns1:Cm9AgrPromoMaster" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfOfferInfo">
+                <xs:sequence>
+                    <xs:element name="OfferInfo" nillable="true" type="ns1:OfferInfo" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfParameterInfo">
+                <xs:sequence>
+                    <xs:element name="ParameterInfo" nillable="true" type="ns1:ParameterInfo" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfString">
+                <xs:sequence>
+                    <xs:element name="string" nillable="true" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BankInfo">
+                <xs:sequence>
+                    <xs:element name="bankCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="bankAccount" type="xs:string" minOccurs="0"/>
+                    <xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ccExpire" type="xs:string" minOccurs="0"/>
+                    <xs:element name="cardCCV2" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Amount" type="xs:double" minOccurs="0"/>
+                    <xs:element name="RocId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TradeDate" type="xs:date" minOccurs="0"/>
+                    <xs:element name="TradeTime" type="xs:time" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BusinessEntityInfo">
+                <xs:sequence>
+                    <xs:element name="businessEntityNumber" nillable="true" type="xs:int" minOccurs="0"/>
+                    <xs:element name="paymentCategory" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Cm9AgrPromoMaster">
+                <xs:sequence>
+                    <xs:element name="bonusCode" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="l9PromtionId" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="promoSeqNo" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="removeWithPromo" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Description">
+                <xs:sequence>
+                    <xs:element name="chineseValue" type="xs:string" minOccurs="0"/>
+                    <xs:element name="englishValue" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="EntityNoInfo" abstract="true"/>
+            <xs:complexType name="InstantOfferCriteria">
+                <xs:sequence>
+                    <xs:element name="ouId" nillable="true" type="ns1:UnitNoInfo" minOccurs="0"/>
+                    <xs:element name="queryDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="subscriberNo" nillable="true" type="ns1:SubscriberNoInfo" minOccurs="0"/>
+                    <xs:element name="withHistory" type="xs:boolean" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="InvoiceNoInfo">
+                <xs:sequence>
+                    <xs:element name="invoiceNumber" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Money">
+                <xs:sequence>
+                    <xs:element name="amount" type="xs:double" minOccurs="0"/>
+                    <xs:element name="units" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OfferDiscountInfo">
+                <xs:sequence>
+                    <xs:element name="type" nillable="true" type="ns1:Type" minOccurs="0"/>
+                    <xs:element name="value" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OfferInfo">
+                <xs:sequence>
+                    <xs:element name="agreementNo" nillable="true" type="ns1:AgreementNoInfo" minOccurs="0"/>
+                    <xs:element name="businessEntityNo" nillable="true" type="xs:int" minOccurs="0"/>
+                    <xs:element name="cm9AgrPromoMasterList" nillable="true" type="ns1:ArrayOfCm9AgrPromoMaster" minOccurs="0"/>
+                    <xs:element name="currency" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="description" nillable="true" type="ns1:Description" minOccurs="0"/>
+                    <xs:element name="discountPlan" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="l9FutureExpirationDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="l9OrigEffDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="maxInstancesAllowed" nillable="true" type="xs:int" minOccurs="0"/>
+                    <xs:element name="offerCharge" nillable="true" type="ns1:Money" minOccurs="0"/>
+                    <xs:element name="offerCode" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="offerDiscount" nillable="true" type="ns1:OfferDiscountInfo" minOccurs="0"/>
+                    <xs:element name="offerInstanceId" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="offerName" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="offerType" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="parameterList" nillable="true" type="ns1:ArrayOfParameterInfo" minOccurs="0"/>
+                    <xs:element name="productType" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="serviceLevel" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="spcode" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="validDuration" nillable="true" type="ns1:ValidTimePeriod" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ParameterInfo">
+                <xs:sequence>
+                    <xs:element name="changeable" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="description" nillable="true" type="ns1:Description" minOccurs="0"/>
+                    <xs:element name="displayIndicator" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="mandatoryInd" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="offerInstanceId" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="parameterCategory" nillable="true" type="xs:int" minOccurs="0"/>
+                    <xs:element name="parameterName" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="parameterOrder" nillable="true" type="xs:short" minOccurs="0"/>
+                    <xs:element name="parameterType" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="parameterValues" nillable="true" type="ns1:ArrayOfString" minOccurs="0"/>
+                    <xs:element name="properties" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="sendToProvision" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="services" nillable="true" type="ns1:ArrayOfString" minOccurs="0"/>
+                    <xs:element name="validDuration" nillable="true" type="ns1:ValidTimePeriod" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PayChannelInfo">
+                <xs:sequence>
+                    <xs:element name="payChannelNo" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="paymentCategory" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="description" nillable="true" type="ns1:Description" minOccurs="0"/>
+                    <xs:element name="benNumber" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="pcnNumber" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="l9EncryptSubRocId" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="l9BirthDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="customerAccountNo" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="customerBillingArrangement" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="customerNo" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="l9ccInfoUpdateDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="paymentMethod" nillable="true" type="ns1:PaymentMethodInfo" minOccurs="0"/>
+                    <xs:element name="payChannelStatus" nillable="true" type="ns1:PayChannelStatusInfo" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PayChannelNoInfo">
+                <xs:sequence>
+                    <xs:element name="payChannelNumber" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PayChannelStatusInfo">
+                <xs:sequence>
+                    <xs:element name="payChannelStatus" type="xs:string" minOccurs="0"/>
+                    <xs:element name="statusDate" nillable="true" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="openDate" type="xs:dateTime" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PaymentDetailInfos">
+                <xs:sequence>
+                    <xs:element name="accountNoInfo" type="ns1:AccountNoInfo"/>
+                    <xs:element name="invoiceNoInfo" type="ns1:InvoiceNoInfo" minOccurs="0"/>
+                    <xs:element name="invoiceDueDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="invoiceAmount" type="xs:double"/>
+                    <xs:element name="paymentAmount" type="xs:double"/>
+                    <xs:element name="depositDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+                    <xs:element name="businessEntity" type="xs:string"/>
+                    <xs:element name="paymentSource" type="xs:string"/>
+                    <xs:element name="billSendType" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PaymentInfo">
+                <xs:sequence>
+                    <xs:element name="IsPayByFocusedMethod">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:length value="1"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="IsPaymentBasic" type="xs:string"/>
+                    <xs:element name="TotalAmount" type="xs:double"/>
+                    <xs:element name="PaymentDetailInfos" type="ns1:PaymentDetailInfos" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="operatorId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="activityType" type="xs:string"/>
+                    <xs:element name="storeNum" type="xs:string" minOccurs="0"/>
+                    <xs:element name="externalSysKey" type="xs:string" minOccurs="0"/>
+                    <xs:element name="unHotline" type="xs:string"/>
+                    <xs:element name="nonCollection" type="xs:string"/>
+                    <xs:element name="paymentDate" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PaymentMethodInfo">
+                <xs:sequence>
+                    <xs:element name="paymentMethod" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="recurringFrequency" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="recurringFrequencyValue" nillable="true" type="xs:int" minOccurs="0"/>
+                    <xs:element name="recurringAmount" nillable="true" type="ns1:Money" minOccurs="0"/>
+                    <xs:element name="issueDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="paymentType" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="bankCode" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="bankAccountNo" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="bankAccountType" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="bankBranchNo" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="creditCardType" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="creditCardNo" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="creditCardExpirationDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="pin" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="paymentMeansOwnerDetails" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ProcessStatus">
+                <xs:sequence>
+                    <xs:element name="currentTask" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="errorCode" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="message" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="processId" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="processName" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="status" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="QueryOfferResult">
+                <xs:complexContent>
+                    <xs:extension base="ns1:AbstractProcessResult">
+                        <xs:sequence>
+                            <xs:element name="beInfo" nillable="true" type="ns1:BusinessEntityInfo" minOccurs="0"/>
+                            <xs:element name="offerList" nillable="true" type="ns1:ArrayOfOfferInfo" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="SubscriberNoInfo">
+                <xs:complexContent>
+                    <xs:extension base="ns1:EntityNoInfo">
+                        <xs:sequence>
+                            <xs:element name="subscriberNumber" nillable="true" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="TransactionInfo">
+                <xs:sequence>
+                    <xs:element name="transactionId" type="xs:int" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Type">
+                <xs:sequence>
+                    <xs:element name="description" nillable="true" type="ns1:Description" minOccurs="0"/>
+                    <xs:element name="value" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="UnitNoInfo">
+                <xs:sequence>
+                    <xs:element name="unitNumber" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ValidTimePeriod">
+                <xs:sequence>
+                    <xs:element name="effectiveDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="expirationDate" type="xs:dateTime" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:servb2="http://www.fet.com.tw/ITSOA/schemas/Common-Domain/SharedResources/XSD/Base/Schema.xsd2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.fet.com.tw/ITSOA/schemas/Common-Domain/SharedResources/XSD/Base/Schema.xsd2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+            <xs:complexType name="AuthInfo">
+                <xs:all>
+                    <xs:element ref="servb2:channelID" minOccurs="0"/>
+                    <xs:element ref="servb2:password"/>
+                    <xs:element ref="servb2:userID"/>
+                </xs:all>
+            </xs:complexType>
+            <xs:complexType name="ReturnHeader">
+                <xs:all>
+                    <xs:element ref="servb2:legacyCode" minOccurs="0"/>
+                    <xs:element ref="servb2:processID" minOccurs="0"/>
+                    <xs:element ref="servb2:processName" minOccurs="0"/>
+                    <xs:element ref="servb2:reserved1" minOccurs="0"/>
+                    <xs:element ref="servb2:reserved2" minOccurs="0"/>
+                    <xs:element ref="servb2:reserved3" minOccurs="0"/>
+                    <xs:element ref="servb2:returnCode"/>
+                    <xs:element ref="servb2:returnMesg" minOccurs="0"/>
+                </xs:all>
+            </xs:complexType>
+            <xs:element name="channelID" type="xs:string"/>
+            <xs:element name="legacyCode" type="xs:string"/>
+            <xs:element name="password" type="xs:string"/>
+            <xs:element name="processID" type="xs:string"/>
+            <xs:element name="processName" type="xs:string"/>
+            <xs:element name="reserved1" type="xs:string"/>
+            <xs:element name="reserved2" type="xs:string"/>
+            <xs:element name="reserved3" type="xs:string"/>
+            <xs:element name="returnCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="17"/>
+                        <xs:minLength value="17"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="returnMesg" type="xs:string"/>
+            <xs:element name="userID" type="xs:string"/>
+        </xs:schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.w3.org/XML/1998/namespace" elementFormDefault="unqualified" attributeFormDefault="qualified">
+            <attribute name="base" type="anyURI"/>
+            <attribute name="id" type="ID"/>
+            <attribute name="lang">
+                <simpleType>
+                    <union memberTypes="language">
+                        <simpleType>
+                            <restriction base="string">
+                                <length value="0"/>
+                            </restriction>
+                        </simpleType>
+                    </union>
+                </simpleType>
+            </attribute>
+            <attribute name="space" default="preserve">
+                <simpleType>
+                    <restriction base="NCName">
+                        <enumeration value="default"/>
+                        <enumeration value="preserve"/>
+                    </restriction>
+                </simpleType>
+            </attribute>
+            <attributeGroup name="specialAttrs">
+                <attribute ref="xml:base"/>
+                <attribute ref="xml:id"/>
+                <attribute ref="xml:lang"/>
+                <attribute ref="xml:space" default="preserve"/>
+            </attributeGroup>
+        </schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/CRM-BillingBizServices/SharedResources/XSD/Schema.xsd" xmlns:crmBilling="http://www.tibco.com/schemas/CRM-Billing/SharedResources/XSD/Base/Imported/Schema.xsd" xmlns:servb2="http://www.fet.com.tw/ITSOA/schemas/Common-Domain/SharedResources/XSD/Base/Schema.xsd2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/CRM-BillingBizServices/SharedResources/XSD/Schema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://www.fet.com.tw/ITSOA/schemas/Common-Domain/SharedResources/XSD/Base/Schema.xsd2"/>
+            <xs:import namespace="http://www.tibco.com/schemas/CRM-Billing/SharedResources/XSD/Base/Imported/Schema.xsd"/>
+            <xs:complexType name="ProcessStatus">
+                <xs:sequence>
+                    <xs:element name="currentTask" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="errorCode" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="message" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="processId" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="processName" nillable="true" type="xs:string" minOccurs="0"/>
+                    <xs:element name="status" nillable="true" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TransactionInfo">
+                <xs:sequence>
+                    <xs:element name="transChannelId">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:maxLength value="16"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="transSubChannel" minOccurs="0">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="transUserId">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:maxLength value="32"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="transBpId">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:maxLength value="36"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="transPath">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:maxLength value="256"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="createPaymentByBillRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="authInfo" type="servb2:AuthInfo"/>
+                        <xs:element name="transInfo" type="ns0:TransactionInfo"/>
+                        <xs:element name="PaymentInfo" type="crmBilling:PaymentInfo"/>
+                        <xs:element name="BankInfo" type="crmBilling:BankInfo"/>
+                        <xs:element name="TransactionInfo" type="crmBilling:TransactionInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createPaymentByBillResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="returnHeader" type="servb2:ReturnHeader"/>
+                        <xs:element name="barcodeSeq" type="xs:string" minOccurs="0"/>
+                        <xs:element name="sMessage" type="xs:string" minOccurs="0"/>
+                        <xs:element name="sRespCode" type="xs:string" minOccurs="0"/>
+                        <xs:element name="sReturnCode" type="xs:string" minOccurs="0"/>
+                        <xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="queryOfferListRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="authInfo" type="servb2:AuthInfo"/>
+                        <xs:element name="transInfo" type="ns0:TransactionInfo"/>
+                        <xs:element name="beInfo" type="crmBilling:BusinessEntityInfo"/>
+                        <xs:element name="queryCriteria" type="crmBilling:InstantOfferCriteria"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="queryOfferListResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="returnHeader" type="servb2:ReturnHeader"/>
+                        <xs:element name="queryOfferResult" type="crmBilling:QueryOfferResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="queryPayChannelInfoRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="authInfo" type="servb2:AuthInfo"/>
+                        <xs:element name="transInfo" type="ns0:TransactionInfo"/>
+                        <xs:element name="beInfo" type="crmBilling:BusinessEntityInfo"/>
+                        <xs:element name="payChannelNo" type="crmBilling:PayChannelNoInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="queryPayChannelInfoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="returnHeader" type="servb2:ReturnHeader"/>
+                        <xs:element name="payChannel" type="crmBilling:PayChannelInfo" minOccurs="0"/>
+                        <xs:element name="status" type="ns0:ProcessStatus" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="CRMBillInquiryBizService">
+        <wsdl:port name="CRMBillInquiryBizServiceEndpointJMS" binding="tns:CRMBillInquiryBizServiceEndpointJMSBinding">
+            <soap:address location=""/>
+            <jms:connectionFactory>QueueConnectionFactory</jms:connectionFactory>
+            <jms:targetAddress destination="queue">com.fet.esb.domain.crm</jms:targetAddress>
+        </wsdl:port>
+        <wsdl:port name="CRMBillInquiryBizServiceEndpointHTTP" binding="tns:CRMBillInquiryBizServiceEndpointHTTPBinding">
+            <soap:address location="http://localhost:8609/CRM-BillingBizServices/CRMBillInquiryBizService.serviceagent/CRMBillInquiryBizServiceEndpointHTTP"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="CRMBillInquiryBizService">
+        <wsdl:operation name="queryOfferList">
+            <wsdl:input message="tns:queryOfferListMessageIn"/>
+            <wsdl:output message="tns:queryOfferListMessageOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayChannelInfo">
+            <wsdl:input message="tns:queryPayChannelInfoMessageIn"/>
+            <wsdl:output message="tns:queryPayChannelInfoMessageOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CRMBillInquiryBizServiceEndpointJMSBinding" type="tns:CRMBillInquiryBizService">
+        <soap:binding style="document" transport="http://www.tibco.com/namespaces/ws/2004/soap/binding/JMS"/>
+        <jms:binding messageFormat="Text"/>
+        <wsdl:operation name="queryOfferList">
+            <soap:operation style="document" soapAction="/CRM-BillingBizServices/CRMBillInquiryBizService.serviceagent/CRMBillInquiryBizServiceEndpointJMS/queryOfferList"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayChannelInfo">
+            <soap:operation style="document" soapAction="/CRM-BillingBizServices/CRMBillInquiryBizService.serviceagent/CRMBillInquiryBizServiceEndpointJMS/queryPayChannelInfo"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Response"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CRMBillInquiryBizServiceEndpointHTTPBinding" type="tns:CRMBillInquiryBizService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="queryOfferList">
+            <soap:operation style="document" soapAction="/CRM-BillingBizServices/CRMBillInquiryBizService.serviceagent/CRMBillInquiryBizServiceEndpointHTTP/queryOfferList"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayChannelInfo">
+            <soap:operation style="document" soapAction="/CRM-BillingBizServices/CRMBillInquiryBizService.serviceagent/CRMBillInquiryBizServiceEndpointHTTP/queryPayChannelInfo"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Response"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="queryOfferListMessageIn">
+        <wsdl:part name="Request" element="ns0:queryOfferListRequest"/>
+    </wsdl:message>
+    <wsdl:message name="queryOfferListMessageOut">
+        <wsdl:part name="Response" element="ns0:queryOfferListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryPayChannelInfoMessageIn">
+        <wsdl:part name="Request" element="ns0:queryPayChannelInfoRequest"/>
+    </wsdl:message>
+    <wsdl:message name="queryPayChannelInfoMessageOut">
+        <wsdl:part name="Response" element="ns0:queryPayChannelInfoResponse"/>
+    </wsdl:message>
+</wsdl:definitions>
