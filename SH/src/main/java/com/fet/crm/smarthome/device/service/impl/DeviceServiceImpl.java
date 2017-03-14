@@ -48,7 +48,6 @@ public class DeviceServiceImpl implements DeviceService {
     private transient OfferClient offerClient;
     private transient DeviceClient deviceClient;;
     private transient WSClient wsClient;
-
     
 	public void setWsClient(WSClient wsClient) {
 		this.wsClient = wsClient;

@@ -1,7 +1,7 @@
 package com.fet.crm.smarthome.device.facade.impl;
 
 import com.fet.crm.smarthome.device.facade.DeviceFacade;
-import com.fet.crm.smarthome.device.service.CustomerService;
+import com.fet.crm.smarthome.device.service.SIGCustomerService;
 import com.fet.crm.smarthome.device.service.DeviceService;
 import com.fet.crm.smarthome.generic.bean.AlertEventVO;
 import com.fet.crm.smarthome.generic.bean.AlertNoticeVO;
@@ -32,20 +32,15 @@ import java.util.Map;
  */
 public class DeviceFacadeImpl implements DeviceFacade {
     private static final ILogger LOG = LoggerFactory.getLogger(DeviceFacadeImpl.class);
-    private transient CustomerService customerService;
+    private transient SIGCustomerService sigCustomerService;
     private transient DeviceService deviceService;
 
-    /**
-     * DOCUMENT ME!
-     * 
-     * @param customerService
-     *            DOCUMENT ME!
-     */
-    public void setCustomerService(final CustomerService customerService) {
-        this.customerService = customerService;
-    }
 
-    /**
+    public void setSigCustomerService(SIGCustomerService sigCustomerService) {
+		this.sigCustomerService = sigCustomerService;
+	}
+
+	/**
      * DOCUMENT ME!
      * 
      * @param deviceService
@@ -67,7 +62,7 @@ public class DeviceFacadeImpl implements DeviceFacade {
      * @throws BusinessException
      */
     public UserProfile getUserProfile(final String cspUser) throws BusinessException {
-        return customerService.getUserProfile(cspUser);
+        return sigCustomerService.getUserProfile(cspUser);
     }
 
     /**
@@ -84,7 +79,7 @@ public class DeviceFacadeImpl implements DeviceFacade {
 
         try {
             // call SIG, 用門號取得Subscriber id
-            final CustomerVO customerVO = customerService.getSubscriberIdByMsisdn(msisdn);
+            final CustomerVO customerVO = sigCustomerService.getSubscriberIdByMsisdn(msisdn);
             subscriberId = customerVO.getSubscriberId();
         } catch (final BusinessException e) {
             final String errCode = ErrorCodeUtil.buildErrorCode(SmartHomeConstants.DOMAIN_CODE,
@@ -210,8 +205,6 @@ public class DeviceFacadeImpl implements DeviceFacade {
         deviceService.validateDateRange(startTime, endTime);
         // call 設備API queryAlertEvent method 查詢告警事件
         List<AlertEventVO> rtnList = deviceService.queryAlertEvent(msisdn, deviceSerial, startTime, endTime, pageNo, getPageSize());
-        // TODO call 二代API 查詢告警事件
-//        rtnList.addAll();
         
         return rtnList;
     }
@@ -331,7 +324,7 @@ public class DeviceFacadeImpl implements DeviceFacade {
     }
 
     /**
-     * 告警通知設定頁，新增所選設備之告警通知設定(維熹)
+     * 告警通知設定頁，新增所選設備之告警通知設定(二代)
      * 
      * @param channel
      * @param fetuid
@@ -381,7 +374,7 @@ public class DeviceFacadeImpl implements DeviceFacade {
 
 
     /**
-     * 告警通知設定頁，移除所選設備之告警通知設定(維熹)
+     * 告警通知設定頁，移除所選設備之告警通知設定(二代)
      * 
      * @param channel
      * @param fetuid

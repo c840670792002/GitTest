@@ -2,7 +2,7 @@ package com.fet.crm.smarthome.device.service.impl;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.fet.crm.smarthome.device.service.CustomerService;
+import com.fet.crm.smarthome.device.service.SIGCustomerService;
 import com.fet.crm.smarthome.generic.bean.CustomerVO;
 import com.fet.crm.smarthome.generic.model.UserProfile;
 import com.fet.crm.smarthome.generic.util.BusinessException;
@@ -23,7 +23,7 @@ import com.fet.siggw.vo.MsisdnKeysVo;
  * @author Paul Chan
  * @version 1.0.0.0
  */
-public class SIGCustomerServiceImpl implements CustomerService {
+public class SIGCustomerServiceImpl implements SIGCustomerService {
     private static final ILogger LOG = LoggerFactory.getLogger(SIGCustomerServiceImpl.class);
     private transient UserProfileClient userProfileClient;
     private transient SIGClient sigClient;

@@ -9,7 +9,7 @@
 	<!-- deviceFacade -->
 	<bean id="deviceFacade"
 		class="com.fet.crm.smarthome.device.facade.impl.DeviceFacadeImpl">
-		<property name="customerService" ref="SIGService" />
+		<property name="sigCustomerService" ref="SIGService" />
 		<property name="deviceService" ref="deviceService" />
 	</bean>
 </beans>

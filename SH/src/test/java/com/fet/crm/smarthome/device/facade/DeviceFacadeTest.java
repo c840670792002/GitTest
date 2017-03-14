@@ -5,7 +5,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.fet.crm.smarthome.device.facade.impl.DeviceFacadeImpl;
-import com.fet.crm.smarthome.device.service.CustomerService;
+import com.fet.crm.smarthome.device.service.SIGCustomerService;
 import com.fet.crm.smarthome.device.service.DeviceService;
 import com.fet.crm.smarthome.generic.bean.CustomerVO;
 import com.fet.crm.smarthome.generic.util.BusinessException;
@@ -17,13 +17,13 @@ import org.junit.Test;
 
 public class DeviceFacadeTest {
     private DeviceFacadeImpl deviceFacade;
-    private CustomerService customerService;
+    private SIGCustomerService customerService;
     private DeviceService deviceService;
 
     @Before
     public void setup() {
         deviceFacade = new DeviceFacadeImpl();
-        customerService = mock(CustomerService.class);
+        customerService = mock(SIGCustomerService.class);
         deviceFacade.setCustomerService(customerService);
         deviceService = mock(DeviceService.class);
         deviceFacade.setDeviceService(deviceService);

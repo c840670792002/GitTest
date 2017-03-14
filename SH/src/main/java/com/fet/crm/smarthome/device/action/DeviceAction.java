@@ -57,7 +57,7 @@ public class DeviceAction {
 	private final static String DID_MASTER_1 = MessageUtil.getStringMessage("smarthome2.did.master.type.1");
 	private final static String DID_MASTER_2 = MessageUtil.getStringMessage("smarthome2.did.master.type.2");
 	
-    /**	共用入口方法，Fetnet/CSR可透過此URL進入
+    /**	共用入口方法，CSR/PC/WO可透過此URL進入
      * @param request
      * @param model
      * @return
@@ -75,30 +75,34 @@ public class DeviceAction {
     	String nickName;
     	String subscriberId;
     	
-    	//FIXME 帶入參數有哪些???
+    	//FIXME 帶入參數有哪些???CSR???
     	//entry為Fetnet時，需傳遞msisdn,uid,nickName,subscriberId (Fetnet 走正常登入流程，應不會透過轉址進入)
     	if(SmartHomeConstants.CHANNEL_FET.equals(channel)){
-    		msisdn = request.getParameter("msisdn");
-    		uId = request.getParameter("uId");
-    		nickName = request.getParameter("nickName");
-    		subscriberId = request.getParameter("subscriberId");
-    		
-            userProfile.setMsisdn(msisdn);
-            userProfile.setFetuid(uId);
-            userProfile.setNickName(nickName);
-            userProfile.setSubscriberId(subscriberId);
-            userProfile.setChannel(channel);
+//    		msisdn = request.getParameter("msisdn");
+//    		uId = request.getParameter("uId");
+//    		nickName = request.getParameter("nickName");
+//    		subscriberId = request.getParameter("subscriberId");
+//    		
+//            userProfile.setMsisdn(msisdn);
+//            userProfile.setFetuid(uId);
+//            userProfile.setNickName(nickName);
+//            userProfile.setSubscriberId(subscriberId);
+//            userProfile.setChannel(channel);
             
         //entry為CSR時 
     	}else if(SmartHomeConstants.CHANNEL_CSR.equals(channel)){
-    		//TODO 驗證帳號 & 權限 於userProfile中新增權限變數來顯示第四個TAB
+    		//TODO 驗證帳號 & 權限 
+    		//TODO 於userProfile中新增權限變數來顯示第四個TAB
     		msisdn = request.getParameter("msisdn");
+    		//TODO 利用APIM=>用msisdn取uid ：getUid(String msisdn);
+    		uId = "TODO";//ApimClient.getUid(msisdn);
+    		
 //    		uId = request.getParameter("uId");
 //    		nickName = request.getParameter("nickName");
 //    		subscriberId = request.getParameter("subscriberId");
     		
             userProfile.setMsisdn(msisdn);
-            userProfile.setFetuid(msisdn);//TODO uid??????????
+            userProfile.setFetuid(uId);
 //            userProfile.setNickName(nickName);
 //            userProfile.setSubscriberId(subscriberId);
             userProfile.setChannel(channel);
@@ -175,11 +179,10 @@ public class DeviceAction {
         	
         	Integer didType = getDidType(deviceSerial);
         	
-        	//TODO UI是否有依照一二代而有不同呈現方式 
         	List<DeviceVO> deviceList = null;
         	switch(didType) { 
 	            case 1: //一代
-//	            	deviceList = devicetFacade.queryDevice(msisdn, deviceSerial);
+//	            	deviceList = devicetFacade.queryDevice(msisdn, deviceSerial);//FIXME 先mark掉一代
 //	                break; 
 	            case 2: //二代
 	            	deviceList = devicetFacade.queryDeviceFor2(userProfile.getChannel(),deviceSerial,userProfile.getFetuid());
@@ -259,11 +262,10 @@ public class DeviceAction {
 
         	Integer didType = getDidType(deviceSerial);
         	
-        	//TODO UI是否有依照一二代而有不同呈現方式 
         	List<AlertEventVO> alertEventList = null;
         	switch(didType) { 
 	            case 1: //一代
-//	            	alertEventList = devicetFacade.queryAlertEvent(msisdn, deviceSerial, startTimeObj, endTimeObj, Integer.parseInt(pageNo));
+//	            	alertEventList = devicetFacade.queryAlertEvent(msisdn, deviceSerial, startTimeObj, endTimeObj, Integer.parseInt(pageNo));//FIXME 先mark掉一代
 //	                break; 
 	            case 2: //二代
 	            	alertEventList = devicetFacade.queryAlertEventFor2(userProfile.getChannel(),deviceSerial,userProfile.getFetuid(), startTimeObj, endTimeObj, Integer.parseInt(pageNo));
@@ -343,7 +345,7 @@ public class DeviceAction {
         	Map<String, List<AlertNoticeVO>>  alertNoticeMap = null;
         	switch(didType) { 
 	            case 1: //一代
-//	            	alertNoticeMap = devicetFacade.listAlertNotice(msisdn, deviceSerial);
+//	            	alertNoticeMap = devicetFacade.listAlertNotice(msisdn, deviceSerial);//FIXME 先mark掉一代
 //	                break; 
 	            case 2: //二代
 	            	alertNoticeMap = devicetFacade.listAlertNoticeFor2(userProfile.getChannel(),deviceSerial,userProfile.getFetuid());
@@ -387,7 +389,7 @@ public class DeviceAction {
         	DeviceResultVO processResult = null;
         	switch(didType) { 
 	            case 1: //一代
-//	                processResult = devicetFacade.addAlertNotice(msisdn, deviceSerial, type, value);
+//	                processResult = devicetFacade.addAlertNotice(msisdn, deviceSerial, type, value);//FIXME 先mark掉一代
 //	                break; 
 	            case 2: //二代
 	            	processResult = devicetFacade.addAlertNoticeFor2(userProfile.getChannel(),userProfile.getFetuid(),msisdn, deviceSerial, type, value);
@@ -408,7 +410,7 @@ public class DeviceAction {
         	Map<String, List<AlertNoticeVO>>  alertNoticeMap = null;
         	switch(didType) { 
 	            case 1: //一代
-//	            	alertNoticeMap = devicetFacade.listAlertNotice(msisdn, deviceSerial);
+//	            	alertNoticeMap = devicetFacade.listAlertNotice(msisdn, deviceSerial);//FIXME 先mark掉一代
 //	                break; 
 	            case 2: //二代
 	            	alertNoticeMap = devicetFacade.listAlertNoticeFor2(userProfile.getChannel(),deviceSerial,userProfile.getFetuid());
@@ -459,7 +461,7 @@ public class DeviceAction {
         	DeviceResultVO processResult = null;
         	switch(didType) { 
 	            case 1: //一代
-//	                processResult = devicetFacade.removeAlertNotice(msisdn, deviceSerial, type, value);
+//	                processResult = devicetFacade.removeAlertNotice(msisdn, deviceSerial, type, value);//FIXME 先mark掉一代
 //	                break; 
 	            case 2: //二代
 	            	processResult = devicetFacade.removeAlertNoticeFor2(userProfile.getChannel(),userProfile.getFetuid(),msisdn, deviceSerial, type, value);
@@ -478,7 +480,7 @@ public class DeviceAction {
         	Map<String, List<AlertNoticeVO>>  alertNoticeMap = null;
         	switch(didType) { 
 	            case 1: //一代
-//	            	alertNoticeMap = devicetFacade.listAlertNotice(msisdn, deviceSerial);
+//	            	alertNoticeMap = devicetFacade.listAlertNotice(msisdn, deviceSerial);//FIXME 先mark掉一代
 //	                break; 
 	            case 2: //二代
 	            	alertNoticeMap = devicetFacade.listAlertNoticeFor2(userProfile.getChannel(),deviceSerial,userProfile.getFetuid());
