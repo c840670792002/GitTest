@@ -7,7 +7,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.BeanUtils;
 
-import com.fet.rest.bean.GetAlarmEventReq;
+import com.fet.rest.bean.GetAlertEventReq;
 import com.google.gson.Gson;
 
 
@@ -20,7 +20,7 @@ public class test {
 			Gson gson = new Gson();
 			
 			
-			GetAlarmEventReq r1 = new GetAlarmEventReq();
+			GetAlertEventReq r1 = new GetAlertEventReq();
 			r1.setChannelId("01");
 			r1.setPartnerId("DSES000001");
 			r1.setDID("PRX0000123XXXX");
@@ -30,7 +30,7 @@ public class test {
 			r1.setPageNum(1);
 			r1.setPageSize(20);
 			
-			doPost("getAlarmEvent",gson.toJson(r1));
+			doPost("GetAlertEvent",gson.toJson(r1));
 			
 //			GetDeviceStatusReq r2 = new GetDeviceStatusReq();
 //			r2.setDID("PRX0000123XXXX");

@@ -2,7 +2,7 @@ package com.fet.ws.bean;
 
 import java.util.List;
 
-public class GetAlarmEventResponse  {
+public class GetAlertEventResponse  {
 	
 	private Result result;
 	private String totalSize;//	string	查詢時間區間之總數

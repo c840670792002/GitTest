@@ -34,8 +34,8 @@ import com.fet.rest.bean.AddAlertNoticeReq;
 import com.fet.rest.bean.AddAlertNoticeRsp;
 import com.fet.rest.bean.DelAlertNoticeReq;
 import com.fet.rest.bean.DelAlertNoticeRsp;
-import com.fet.rest.bean.GetAlarmEventReq;
-import com.fet.rest.bean.GetAlarmEventRsp;
+import com.fet.rest.bean.GetAlertEventReq;
+import com.fet.rest.bean.GetAlertEventRsp;
 import com.fet.rest.bean.GetAlertNoticeReq;
 import com.fet.rest.bean.GetAlertNoticeRsp;
 import com.fet.rest.bean.GetDeviceStatusReq;
@@ -324,13 +324,13 @@ public class DeviceServiceImpl implements DeviceService {
     public List<AlertEventVO> queryAlertEventFor2(final String channel, final String deviceSerial, final String fetuid, final Date startTime,
             final Date endTime, final int pageNo, final int pageSize) throws BusinessException {
 
-    	GetAlarmEventRsp response = null;
+    	GetAlertEventRsp response = null;
     	// call 設備API queryAlertEvent method 查詢告警事件
     	try{
 
             final SimpleDateFormat queryTimeFormat = new SimpleDateFormat(QUERY_TIME_PATTERN, Locale.US);
             
-        	GetAlarmEventReq req = new GetAlarmEventReq();;
+        	GetAlertEventReq req = new GetAlertEventReq();;
     		req.setChannelId(channel);
     		req.setPartnerId("DSES000001");
     		req.setDID(deviceSerial);
@@ -344,7 +344,7 @@ public class DeviceServiceImpl implements DeviceService {
     		req.setPageNum(pageNo);
     		req.setPageSize(pageSize);
     		
-    		response = postUtil.getAlarmEvent(req, MessageUtil.getStringMessage("smarthome2.ws.url"));
+    		response = postUtil.GetAlertEvent(req, MessageUtil.getStringMessage("smarthome2.ws.url"));
     		
 		} catch (Exception e) {
 			e.printStackTrace();

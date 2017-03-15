@@ -1,7 +1,5 @@
 package com.fet.rest;
 
-import java.util.ResourceBundle;
-
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -11,15 +9,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import com.fet.api.service.DeviceWsService;
 import com.fet.rest.bean.AddAlertNoticeReq;
 import com.fet.rest.bean.AddAlertNoticeRsp;
 import com.fet.rest.bean.DelAlertNoticeReq;
 import com.fet.rest.bean.DelAlertNoticeRsp;
-import com.fet.rest.bean.GetAlarmEventReq;
-import com.fet.rest.bean.GetAlarmEventRsp;
+import com.fet.rest.bean.GetAlertEventReq;
+import com.fet.rest.bean.GetAlertEventRsp;
 import com.fet.rest.bean.GetAlertNoticeReq;
 import com.fet.rest.bean.GetAlertNoticeRsp;
 import com.fet.rest.bean.GetDeviceStatusReq;
@@ -28,15 +25,12 @@ import com.fet.rest.bean.GetDidReq;
 import com.fet.rest.bean.GetDidRsp;
 import com.fet.rest.bean.GetUserReq;
 import com.fet.rest.bean.GetUserRsp;
-import com.fet.rest.bean.RestResult;
-import com.fet.util.Constants;
-import com.fet.ws.DeviceWsClient;
 import com.fet.ws.bean.AddAlertNoticeRequest;
 import com.fet.ws.bean.AddAlertNoticeResponse;
 import com.fet.ws.bean.DelAlertNoticeRequest;
 import com.fet.ws.bean.DelAlertNoticeResponse;
-import com.fet.ws.bean.GetAlarmEventRequest;
-import com.fet.ws.bean.GetAlarmEventResponse;
+import com.fet.ws.bean.GetAlertEventRequest;
+import com.fet.ws.bean.GetAlertEventResponse;
 import com.fet.ws.bean.GetAlertNoticeRequest;
 import com.fet.ws.bean.GetAlertNoticeResponse;
 import com.fet.ws.bean.GetDeviceStatusRequest;
@@ -63,29 +57,30 @@ public class SmartHomeWS {
 
 	@Autowired
 	private DeviceWsService deviceWsService;
+	
 
 	/**1.取得攝影機報警記錄
 	 * @param jsonStr
 	 * @return
 	 */
 	@POST
-	@Path("/getAlarmEvent")
+	@Path("/GetAlertEvent")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getAlarmEvent(String jsonStr) {
-		//localhost:8080/ApiGateway/sh/getAlarmEvent/
+	public String GetAlertEvent(String jsonStr) {
+		//localhost:8080/ApiGateway/sh/GetAlertEvent/
 
 		
 		//parse json to obj(含channelId,partnerId等資訊)
-		final GetAlarmEventReq request = gson.fromJson(jsonStr, GetAlarmEventReq.class);
+		final GetAlertEventReq request = gson.fromJson(jsonStr, GetAlertEventReq.class);
 		//傳送給維熹使用的request,需避免呈現channelId,partnerId
-		final GetAlarmEventRequest wsRequest = new GetAlarmEventRequest();
+		final GetAlertEventRequest wsRequest = new GetAlertEventRequest();
 		
 		BeanUtils.copyProperties(request, wsRequest);
 
-		GetAlarmEventResponse wsResponse = null;
-		GetAlarmEventRsp response = new GetAlarmEventRsp();
+		GetAlertEventResponse wsResponse = null;
+		GetAlertEventRsp response = new GetAlertEventRsp();
 		
-		String rtnStr = deviceWsService.getAlarmEvent(request,wsRequest,response,wsResponse);
+		String rtnStr = deviceWsService.GetAlertEvent(request,wsRequest,response,wsResponse);
 		
 		
 		return rtnStr;

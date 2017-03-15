@@ -40,5 +40,4 @@
 	</bean>
 	<bean id="fakeSigClient"
 		class="com.fet.crm.smarthome.mware.client.impl.FakeSIGClientImpl" />
-	<bean id="wsClient" class="com.fet.crm.smarthome.mware.client.impl.WSClientImpl" />
 </beans>

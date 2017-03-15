@@ -1,8 +1,8 @@
 package com.fet.rest.bean;
 
-import com.fet.ws.bean.GetAlarmEventRequest;
+import com.fet.ws.bean.GetAlertEventRequest;
 
-public class GetAlarmEventReq extends GetAlarmEventRequest{
+public class GetAlertEventReq extends GetAlertEventRequest{
 
 	private String channelId;
 	private String partnerId;

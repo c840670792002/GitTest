@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fet.ws.bean.AlertEvent;
 
-public class GetAlarmEventRsp  {
+public class GetAlertEventRsp  {
 	
 	private RestResult result;
 	private String totalSize;//	string	查詢時間區間之總數

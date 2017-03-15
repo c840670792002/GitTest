@@ -12,8 +12,8 @@ import com.fet.rest.bean.AddAlertNoticeReq;
 import com.fet.rest.bean.AddAlertNoticeRsp;
 import com.fet.rest.bean.DelAlertNoticeReq;
 import com.fet.rest.bean.DelAlertNoticeRsp;
-import com.fet.rest.bean.GetAlarmEventReq;
-import com.fet.rest.bean.GetAlarmEventRsp;
+import com.fet.rest.bean.GetAlertEventReq;
+import com.fet.rest.bean.GetAlertEventRsp;
 import com.fet.rest.bean.GetAlertNoticeReq;
 import com.fet.rest.bean.GetAlertNoticeRsp;
 import com.fet.rest.bean.GetDeviceStatusReq;
@@ -29,8 +29,8 @@ import com.fet.ws.bean.AddAlertNoticeRequest;
 import com.fet.ws.bean.AddAlertNoticeResponse;
 import com.fet.ws.bean.DelAlertNoticeRequest;
 import com.fet.ws.bean.DelAlertNoticeResponse;
-import com.fet.ws.bean.GetAlarmEventRequest;
-import com.fet.ws.bean.GetAlarmEventResponse;
+import com.fet.ws.bean.GetAlertEventRequest;
+import com.fet.ws.bean.GetAlertEventResponse;
 import com.fet.ws.bean.GetAlertNoticeRequest;
 import com.fet.ws.bean.GetAlertNoticeResponse;
 import com.fet.ws.bean.GetDeviceStatusRequest;
@@ -41,6 +41,10 @@ import com.fet.ws.bean.GetUserRequest;
 import com.fet.ws.bean.GetUserResponse;
 import com.google.gson.Gson;
 
+/**呼叫維熹API
+ * @author user
+ *
+ */
 public class DeviceWsServiceImpl extends BaseService implements DeviceWsService {
 
 
@@ -48,19 +52,16 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 
 	final Gson gson = new Gson();
 	
-	final DeviceWsClient postUtil = new DeviceWsClient();
+	private DeviceWsClient postUtil = new DeviceWsClient();
 	
 	final protected ResourceBundle bundle = ResourceBundle.getBundle("system");
 	
 	final protected String URL = bundle.getString("WS.API.URL");//按照環境不同properties設定不同
 	
-	/* 1.取得攝影機報警記錄
-	 * @see com.fet.api.service.DeviceWsService#getAlarmEvent(com.fet.rest.bean.GetAlarmEventReq, com.fet.ws.bean.GetAlarmEventRequest, com.fet.rest.bean.GetAlarmEventRsp, com.fet.ws.bean.GetAlarmEventResponse)
-	 */
 	@Override
-	public String getAlarmEvent(GetAlarmEventReq request,
-			GetAlarmEventRequest wsRequest, GetAlarmEventRsp response,
-			GetAlarmEventResponse wsResponse) {
+	public String GetAlertEvent(GetAlertEventReq request,
+			GetAlertEventRequest wsRequest, GetAlertEventRsp response,
+			GetAlertEventResponse wsResponse) {
 
 		//預設responseCode前6碼
 		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO);
@@ -73,7 +74,7 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 				//post to 維熹
 				errorCode.append(Constants.BANK_END_ERROR);
 				
-				wsResponse = postUtil.getAlarmEvent(wsRequest,URL);
+				wsResponse = postUtil.getAlertEvent(wsRequest,URL);
 				
 			} catch (Exception e) {
 				e.printStackTrace();

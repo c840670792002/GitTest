@@ -389,8 +389,8 @@ public class DeviceAction {
         	DeviceResultVO processResult = null;
         	switch(didType) { 
 	            case 1: //一代
-//	                processResult = devicetFacade.addAlertNotice(msisdn, deviceSerial, type, value);//FIXME 先mark掉一代
-//	                break; 
+	                processResult = devicetFacade.addAlertNotice(msisdn, deviceSerial, type, value);//FIXME 先mark掉一代
+	                break; 
 	            case 2: //二代
 	            	processResult = devicetFacade.addAlertNoticeFor2(userProfile.getChannel(),userProfile.getFetuid(),msisdn, deviceSerial, type, value);
 	                break; 
@@ -461,8 +461,8 @@ public class DeviceAction {
         	DeviceResultVO processResult = null;
         	switch(didType) { 
 	            case 1: //一代
-//	                processResult = devicetFacade.removeAlertNotice(msisdn, deviceSerial, type, value);//FIXME 先mark掉一代
-//	                break; 
+	                processResult = devicetFacade.removeAlertNotice(msisdn, deviceSerial, type, value);//FIXME 先mark掉一代
+	                break; 
 	            case 2: //二代
 	            	processResult = devicetFacade.removeAlertNoticeFor2(userProfile.getChannel(),userProfile.getFetuid(),msisdn, deviceSerial, type, value);
 	                break; 

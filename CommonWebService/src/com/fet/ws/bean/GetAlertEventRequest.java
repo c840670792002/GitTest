@@ -1,6 +1,6 @@
 package com.fet.ws.bean;
 
-public class GetAlarmEventRequest {
+public class GetAlertEventRequest {
 	
 	private String DID;//	string	攝影機DID
 	private String userId;//	string	no		申辦人UID

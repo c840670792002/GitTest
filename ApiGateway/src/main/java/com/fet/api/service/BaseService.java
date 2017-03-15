@@ -4,7 +4,7 @@ import org.springframework.util.StringUtils;
 
 import com.fet.rest.bean.AddAlertNoticeReq;
 import com.fet.rest.bean.DelAlertNoticeReq;
-import com.fet.rest.bean.GetAlarmEventReq;
+import com.fet.rest.bean.GetAlertEventReq;
 import com.fet.rest.bean.GetAlertNoticeReq;
 import com.fet.rest.bean.GetDeviceStatusReq;
 import com.fet.rest.bean.GetDidReq;
@@ -21,8 +21,8 @@ public class BaseService {
 	protected <T> String checkRequestParam(T request) {
 
 		//	1.取得攝影機報警記錄
-		if(request instanceof GetAlarmEventReq){
-			GetAlarmEventReq r = (GetAlarmEventReq) request;
+		if(request instanceof GetAlertEventReq){
+			GetAlertEventReq r = (GetAlertEventReq) request;
 			if(StringUtils.isEmpty(r.getDID()) || StringUtils.isEmpty(r.getStartTime()) || StringUtils.isEmpty(r.getEndTime()) 
 					|| StringUtils.isEmpty(r.getPageNum()) || StringUtils.isEmpty(r.getPageSize()) ){
 				return Constants.PARAM_ERROR_NULL;

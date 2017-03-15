@@ -5,8 +5,8 @@ import com.fet.rest.bean.AddAlertNoticeReq;
 import com.fet.rest.bean.AddAlertNoticeRsp;
 import com.fet.rest.bean.DelAlertNoticeReq;
 import com.fet.rest.bean.DelAlertNoticeRsp;
-import com.fet.rest.bean.GetAlarmEventReq;
-import com.fet.rest.bean.GetAlarmEventRsp;
+import com.fet.rest.bean.GetAlertEventReq;
+import com.fet.rest.bean.GetAlertEventRsp;
 import com.fet.rest.bean.GetAlertNoticeReq;
 import com.fet.rest.bean.GetAlertNoticeRsp;
 import com.fet.rest.bean.GetDeviceStatusReq;
@@ -36,7 +36,7 @@ public class ApiGwClient {
 	 * @return
 	 * @throws Exception 
 	 */
-	public  GetAlarmEventRsp getAlarmEvent(GetAlarmEventReq request, String URL ) throws Exception {
+	public  GetAlertEventRsp GetAlertEvent(GetAlertEventReq request, String URL ) throws Exception {
 
 		
 		//parse Obj to Json
@@ -46,10 +46,10 @@ public class ApiGwClient {
 		//post to 維熹 
 		responseJson = postUtil.post(URL, Constants.GetAlarmEvent, requestJson);
 		
-		GetAlarmEventRsp response = null;
+		GetAlertEventRsp response = null;
 		if(null != responseJson){
 			//parse Json to Obj, then return 
-			response = gson.fromJson(responseJson, GetAlarmEventRsp.class);
+			response = gson.fromJson(responseJson, GetAlertEventRsp.class);
 		}
 		return response;
 	}

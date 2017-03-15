@@ -7,8 +7,8 @@ import com.fet.ws.bean.AddAlertNoticeRequest;
 import com.fet.ws.bean.AddAlertNoticeResponse;
 import com.fet.ws.bean.DelAlertNoticeRequest;
 import com.fet.ws.bean.DelAlertNoticeResponse;
-import com.fet.ws.bean.GetAlarmEventRequest;
-import com.fet.ws.bean.GetAlarmEventResponse;
+import com.fet.ws.bean.GetAlertEventRequest;
+import com.fet.ws.bean.GetAlertEventResponse;
 import com.fet.ws.bean.GetAlertNoticeRequest;
 import com.fet.ws.bean.GetAlertNoticeResponse;
 import com.fet.ws.bean.GetDeviceStatusRequest;
@@ -36,7 +36,7 @@ public class DeviceWsClient {
 	 * @return
 	 * @throws Exception 
 	 */
-	public  GetAlarmEventResponse getAlarmEvent(GetAlarmEventRequest request, String URL ) throws Exception {
+	public  GetAlertEventResponse getAlertEvent(GetAlertEventRequest request, String URL ) throws Exception {
 
 		
 		//parse Obj to Json
@@ -46,10 +46,10 @@ public class DeviceWsClient {
 		//post to 維熹 
 		responseJson = postUtil.post(URL, Constants.GetAlarmEvent, requestJson);
 		
-		GetAlarmEventResponse response = null;
+		GetAlertEventResponse response = null;
 		if(null != responseJson){
 			//parse Json to Obj, then return 
-			response = gson.fromJson(responseJson, GetAlarmEventResponse.class);
+			response = gson.fromJson(responseJson, GetAlertEventResponse.class);
 		}
 		return response;
 	}

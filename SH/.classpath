@@ -38,6 +38,6 @@
 	<classpathentry kind="lib" path="E:/farEasTone/SmartHome/sourceCode/FetnetJar/SIG2.0.jar"/>
 	<classpathentry kind="lib" path="E:/farEasTone/SmartHome/sourceCode/FetnetJar/siggw.jar"/>
 	<classpathentry kind="lib" path="E:/farEasTone/SmartHome/sourceCode/FetnetJar/lib/fet-logger-log4j-1.2.8.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/CommonWebService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CommonWS"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

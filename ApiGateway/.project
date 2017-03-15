@@ -3,7 +3,7 @@
 	<name>ApiGateway</name>
 	<comment></comment>
 	<projects>
-		<project>CommonWebService</project>
+		<project>CommonWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
