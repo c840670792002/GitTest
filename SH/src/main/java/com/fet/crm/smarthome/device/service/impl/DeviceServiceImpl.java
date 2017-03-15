@@ -1,8 +1,10 @@
 package com.fet.crm.smarthome.device.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import com.fet.crm.smarthome.device.service.DeviceService;
@@ -25,16 +27,24 @@ import com.fet.crm.smarthome.generic.util.MessageUtil;
 import com.fet.crm.smarthome.generic.util.SmartHomeConstants;
 import com.fet.crm.smarthome.mware.client.DeviceClient;
 import com.fet.crm.smarthome.mware.client.OfferClient;
-import com.fet.crm.smarthome.mware.client.WSClient;
 import com.fet.generic.logger.ILogger;
 import com.fet.generic.logger.LoggerFactory;
+import com.fet.rest.ApiGwClient;
+import com.fet.rest.bean.AddAlertNoticeReq;
 import com.fet.rest.bean.AddAlertNoticeRsp;
+import com.fet.rest.bean.DelAlertNoticeReq;
 import com.fet.rest.bean.DelAlertNoticeRsp;
+import com.fet.rest.bean.GetAlarmEventReq;
 import com.fet.rest.bean.GetAlarmEventRsp;
+import com.fet.rest.bean.GetAlertNoticeReq;
 import com.fet.rest.bean.GetAlertNoticeRsp;
+import com.fet.rest.bean.GetDeviceStatusReq;
 import com.fet.rest.bean.GetDeviceStatusRsp;
+import com.fet.rest.bean.GetDidReq;
+import com.fet.rest.bean.GetDidRsp;
 import com.fet.rest.bean.RestResult;
 import com.fet.util.Constants;
+import com.fet.ws.bean.DID;
 import com.fet.ws.bean.EDID;
 
 /**
@@ -47,11 +57,10 @@ public class DeviceServiceImpl implements DeviceService {
     private static final ILogger LOG = LoggerFactory.getLogger(DeviceServiceImpl.class);
     private transient OfferClient offerClient;
     private transient DeviceClient deviceClient;;
-    private transient WSClient wsClient;
+
+    private static final String QUERY_TIME_PATTERN = "yyyyMMddHHmmss";
+    private static final ApiGwClient postUtil = new ApiGwClient();
     
-	public void setWsClient(WSClient wsClient) {
-		this.wsClient = wsClient;
-	}
 
 	/**
      * DOCUMENT ME!
@@ -96,7 +105,55 @@ public class DeviceServiceImpl implements DeviceService {
      * @throws Exception 
      */
     public List<OfferVO> queryAllDevicesByFetuid(final String channel ,final String fetuid) throws Exception{
-    	return wsClient.queryOfferList(channel,fetuid);
+    	
+    	GetDidReq req = new GetDidReq();;
+    	req.setChannelId(channel);
+    	req.setPartnerId("DSES000001");
+		req.setUserId(fetuid);
+		
+		GetDidRsp rsp = postUtil.getDID(req, MessageUtil.getStringMessage("smarthome2.ws.url"));
+		
+//    	GetDidRsp rsp = wsClient.getDID(channel,fetuid);
+		
+        final List<OfferVO> result = new ArrayList<OfferVO>();
+
+        if (null != rsp) {
+        	RestResult rst = rsp.getResult();
+        	if(null != rst ){
+        		if(Constants.SUCCESS.equals(rst.getCode())){
+        			
+                    final StringBuffer offerNameKey = new StringBuffer();
+                    
+        			for(DID d : rsp.getDIDs()){
+
+        	            final OfferVO offerVO = new OfferVO();
+
+        	            // 取得的Offer Code 需對應設定檔，顯示方案名稱於畫面上。
+        	            final String offerCode = d.getOfferId();
+        	            offerVO.setOfferCode(offerCode);
+
+        	            offerNameKey.delete(0, offerNameKey.length());
+        	            offerNameKey.append("offer_name.");
+        	            offerNameKey.append(offerCode);
+
+        	            // TODO 如果對應設定檔找不到的話暫定擺入 ???? 待確認。
+        	            final String offerName = MessageUtil.getStringMessage(offerNameKey.toString(), "如果對應設定檔找不到的話暫定擺入 ???? ");
+        	            offerVO.setOfferName(offerName);
+        	            // 取陣列的第一個值。此值代表設備編號。可用來查詢設備API 使用。
+        	            offerVO.setDeviceSerial(d.getDID());
+        	            result.add(offerVO);
+        			}
+        		}else{
+        			LOG.info("result Code error");
+        		}
+        	}else{
+        		LOG.info("result was empty");
+        	}
+        }else{
+        	LOG.info("call Apigateway fail");
+        }
+        
+    	return result;
     }
 
     /**
@@ -142,7 +199,14 @@ public class DeviceServiceImpl implements DeviceService {
     	// call 設備API queryDevice method 取得設備狀態
     	GetDeviceStatusRsp response = null;
 		try {
-			response = wsClient.queryDeviceFor2(channel,deviceSerial,fetuid);
+
+	    	GetDeviceStatusReq req = new GetDeviceStatusReq();;
+			req.setChannelId(channel);
+			req.setPartnerId("DSES000001");
+			req.setUserId(fetuid);
+			req.setDID(deviceSerial);
+	    	
+			response = postUtil.getDeviceStatus(req, MessageUtil.getStringMessage("smarthome2.ws.url"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -261,9 +325,27 @@ public class DeviceServiceImpl implements DeviceService {
             final Date endTime, final int pageNo, final int pageSize) throws BusinessException {
 
     	GetAlarmEventRsp response = null;
+    	// call 設備API queryAlertEvent method 查詢告警事件
     	try{
-    		// call 設備API queryAlertEvent method 查詢告警事件
-    		response = wsClient.queryAlertEventFor2(channel, deviceSerial,fetuid, startTime, endTime, pageNo - 1, pageSize);
+
+            final SimpleDateFormat queryTimeFormat = new SimpleDateFormat(QUERY_TIME_PATTERN, Locale.US);
+            
+        	GetAlarmEventReq req = new GetAlarmEventReq();;
+    		req.setChannelId(channel);
+    		req.setPartnerId("DSES000001");
+    		req.setDID(deviceSerial);
+    		req.setUserId(fetuid);
+    		if (null != startTime) {
+    			req.setStartTime(queryTimeFormat.format(startTime));
+    		}
+    		if (null != endTime) {
+    			req.setEndTime(queryTimeFormat.format(endTime));
+    		}
+    		req.setPageNum(pageNo);
+    		req.setPageSize(pageSize);
+    		
+    		response = postUtil.getAlarmEvent(req, MessageUtil.getStringMessage("smarthome2.ws.url"));
+    		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -343,7 +425,15 @@ public class DeviceServiceImpl implements DeviceService {
 
     	GetAlertNoticeRsp response = null;
 		try {
-			response = wsClient.queryAlertNoticeFor2(channel,deviceSerial,fetuid);
+
+	        GetAlertNoticeReq req = new GetAlertNoticeReq();;
+			req.setChannelId(channel);
+			req.setPartnerId("DSES000001");
+			req.setDID(deviceSerial);
+			req.setUserId(fetuid);
+			
+			response = postUtil.getAlertNotice(req, MessageUtil.getStringMessage("smarthome2.ws.url"));
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -413,9 +503,21 @@ public class DeviceServiceImpl implements DeviceService {
     public DeviceResultVO addAlertNoticeFor2(final String channel, final String fetuid, final String msisdn, final String deviceSerial, final String type, final String value) throws BusinessException{
     	
     	AddAlertNoticeRsp alertNoticeResult = null;
+    	// call 設備API addAlertNotice method 新增告警通知
     	try{
-	    	// call 設備API addAlertNotice method 新增告警通知
-	        alertNoticeResult = wsClient.addAlertNoticeFor2(channel,fetuid,msisdn, deviceSerial, type, value);
+
+            AddAlertNoticeReq req = new AddAlertNoticeReq();;
+    		req.setChannelId(channel);
+    		req.setPartnerId("DSES000001");
+    		req.setDID(deviceSerial);
+    		req.setUserId(fetuid);
+    		
+    		com.fet.ws.bean.AlertNotice alertNotice = new com.fet.ws.bean.AlertNotice();
+    		alertNotice.setType(type);
+    		alertNotice.setValue(value);
+    		req.setAlertNotice(alertNotice);
+    		
+    		alertNoticeResult = postUtil.addAlertNotice(req, MessageUtil.getStringMessage("smarthome2.ws.url"));
     	} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -474,9 +576,21 @@ public class DeviceServiceImpl implements DeviceService {
             final String value) throws BusinessException{
 
     	DelAlertNoticeRsp alertNoticeResult = null;
+    	// call 設備API removeAlertNotice method 移除告警通知
     	try{
-	    	// call 設備API removeAlertNotice method 移除告警通知
-	        alertNoticeResult = wsClient.removeAlertNoticeFor2(channel , fetuid, msisdn, deviceSerial, type, value);
+
+            DelAlertNoticeReq req = new DelAlertNoticeReq();;
+    		req.setChannelId(channel);
+    		req.setPartnerId("DSES000001");
+    		req.setDID(deviceSerial);
+    		req.setUserId(fetuid);
+    		
+    		com.fet.ws.bean.AlertNotice alertNotice = new com.fet.ws.bean.AlertNotice();
+    		alertNotice.setType(type);
+    		alertNotice.setValue(value);
+    		req.setAlertNotice(alertNotice);
+    		
+    		alertNoticeResult = postUtil.delAlertNotice(req, MessageUtil.getStringMessage("smarthome2.ws.url"));
     	} catch (Exception e) {
 			e.printStackTrace();
 		}

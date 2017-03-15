@@ -13,6 +13,5 @@
 		class="com.fet.crm.smarthome.device.service.impl.DeviceServiceImpl">
 		<property name="offerClient" ref="offerClient" />
 		<property name="deviceClient" ref="deviceClient" />
-		<property name="wsClient" ref="wsClient" />
 	</bean>
 </beans>

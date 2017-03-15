@@ -182,8 +182,8 @@ public class DeviceAction {
         	List<DeviceVO> deviceList = null;
         	switch(didType) { 
 	            case 1: //一代
-//	            	deviceList = devicetFacade.queryDevice(msisdn, deviceSerial);//FIXME 先mark掉一代
-//	                break; 
+	            	deviceList = devicetFacade.queryDevice(msisdn, deviceSerial);//FIXME 先mark掉一代
+	                break; 
 	            case 2: //二代
 	            	deviceList = devicetFacade.queryDeviceFor2(userProfile.getChannel(),deviceSerial,userProfile.getFetuid());
 	                break; 
@@ -265,8 +265,8 @@ public class DeviceAction {
         	List<AlertEventVO> alertEventList = null;
         	switch(didType) { 
 	            case 1: //一代
-//	            	alertEventList = devicetFacade.queryAlertEvent(msisdn, deviceSerial, startTimeObj, endTimeObj, Integer.parseInt(pageNo));//FIXME 先mark掉一代
-//	                break; 
+	            	alertEventList = devicetFacade.queryAlertEvent(msisdn, deviceSerial, startTimeObj, endTimeObj, Integer.parseInt(pageNo));//FIXME 先mark掉一代
+	                break; 
 	            case 2: //二代
 	            	alertEventList = devicetFacade.queryAlertEventFor2(userProfile.getChannel(),deviceSerial,userProfile.getFetuid(), startTimeObj, endTimeObj, Integer.parseInt(pageNo));
 	                break; 
@@ -345,8 +345,8 @@ public class DeviceAction {
         	Map<String, List<AlertNoticeVO>>  alertNoticeMap = null;
         	switch(didType) { 
 	            case 1: //一代
-//	            	alertNoticeMap = devicetFacade.listAlertNotice(msisdn, deviceSerial);//FIXME 先mark掉一代
-//	                break; 
+	            	alertNoticeMap = devicetFacade.listAlertNotice(msisdn, deviceSerial);//FIXME 先mark掉一代
+	                break; 
 	            case 2: //二代
 	            	alertNoticeMap = devicetFacade.listAlertNoticeFor2(userProfile.getChannel(),deviceSerial,userProfile.getFetuid());
 	                break; 
