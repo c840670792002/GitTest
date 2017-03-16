@@ -53,7 +53,19 @@ public final class Constants {
 	
 	//-------------Digit 4-6: Function code-------------//
 	/**001 : API No*/
-	public static String API_NO = "001";
+	public static String API_NO1 = "001";
+	/**002 : API No*/
+	public static String API_NO2 = "002";
+	/**003 : API No*/
+	public static String API_NO3 = "003";
+	/**004 : API No*/
+	public static String API_NO4 = "004";
+	/**005 : API No*/
+	public static String API_NO5 = "005";
+	/**006 : API No*/
+	public static String API_NO6 = "006";
+	/**007 : API No*/
+	public static String API_NO7 = "007";
 	
 	//-------------Digit 7-8: Error type code-------------//
 	/**00 : Custom errors*/
