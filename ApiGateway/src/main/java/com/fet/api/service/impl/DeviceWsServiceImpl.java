@@ -64,7 +64,7 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 			GetAlertEventResponse wsResponse) {
 
 		//預設responseCode前6碼
-		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO);
+		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO1);
 		//check request param
 		final String verifyCode = super.checkRequestParam(request);
 		
@@ -125,7 +125,7 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 			GetDeviceStatusRequest wsRequest, GetDeviceStatusRsp response,
 			GetDeviceStatusResponse wsResponse) {
 
-		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO);
+		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO2);
 		
 		final String verifyCode = super.checkRequestParam(request);//check request param
 		
@@ -186,7 +186,7 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 	public String getAlertNotice(GetAlertNoticeReq request,
 			GetAlertNoticeRequest wsRequest, GetAlertNoticeRsp response,
 			GetAlertNoticeResponse wsResponse) {
-		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO);
+		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO3);
 		final String verifyCode = super.checkRequestParam(request);//check request param
 		
 		if(Constants.SUCCESS.equals(verifyCode)){
@@ -246,7 +246,7 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 			AddAlertNoticeRequest wsRequest, AddAlertNoticeRsp response,
 			AddAlertNoticeResponse wsResponse) {
 
-		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO);
+		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO4);
 		final String verifyCode = super.checkRequestParam(request);//check request param
 		
 		if(Constants.SUCCESS.equals(verifyCode)){
@@ -306,7 +306,7 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 			DelAlertNoticeRequest wsRequest, DelAlertNoticeRsp response,
 			DelAlertNoticeResponse wsResponse) {
 
-		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO);
+		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO5);
 		final String verifyCode = super.checkRequestParam(request);//check request param
 		
 		if(Constants.SUCCESS.equals(verifyCode)){
@@ -365,7 +365,7 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 	public String getDID(GetDidReq request, GetDidRequest wsRequest,
 			GetDidRsp response, GetDidResponse wsResponse) {
 
-		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO);
+		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO6);
 		final String verifyCode = super.checkRequestParam(request);//check request param
 		
 		if(Constants.SUCCESS.equals(verifyCode)){
@@ -423,7 +423,7 @@ public class DeviceWsServiceImpl extends BaseService implements DeviceWsService 
 	public String getUser(GetUserReq request, GetUserRequest wsRequest,
 			GetUserRsp response, GetUserResponse wsResponse) {
 		
-		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO);
+		StringBuilder errorCode = new StringBuilder(Constants.SMART_HOME+Constants.API+Constants.API_NO7);
 		final String verifyCode = super.checkRequestParam(request);//check request param
 		
 		if(Constants.SUCCESS.equals(verifyCode)){
