@@ -74,7 +74,7 @@ public final class Constants {
 	public static String PARAM_ERROR = "01";
 	/**02 : DB error*/
 	public static String DB_ERROR = "02";
-	/**98 : Bank-End error*/
+	/**98 : Back-End error*/
 	public static String BANK_END_ERROR = "98";
 	/**99 : System level errors*/
 	public static String SYSTEM_LEVEL_ERROR = "99";
@@ -92,7 +92,7 @@ public final class Constants {
 	/**02-DB error-02*/
 	public static String DB_ERROR_2 = "02";
 	
-	/**98-Bank-End error-維熹errorCode轉換*/
+	/**98-Back-End error-維熹errorCode轉換*/
 	public static HashMap codeMap = new HashMap();
 	static{
 //		codeMap.put("1", "00");//設定成功
@@ -155,9 +155,6 @@ public final class Constants {
 	public static String CHANNEL_CSR= "02";
 	/**二代PartnerId*/
 	public static String PARTNER_SEC = "DSES000001";
-	
-	/**預設子雞名稱*/
-	public static String EDID_NAME = "子機";
 	
 	/**透過errorCode後四碼轉換訊息內容
 	 * @param code
