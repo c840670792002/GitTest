@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="Big5"?>
+<!--
+/**
+ *   字串中如果有特殊字元 <. >, !, &,或空白.  可使用 <![CDATA[...............]]>
+ *
+-->
+<SSI-System>
+  <!--Subscriber API Setting -->
+  <ENV_Subscriber>
+      <ref>
+          <Ref-Name>CURRENT_SUBSCRIBER_REQUEST_AND_VO_MAP</Ref-Name>
+          <Ref-Value> 
+            <!-- requestParameterName=VoProperitesName[?requestVal1=VoVal1[|requestVal2=VoVal2]....[|requestValX=VoValX]]-->
+            <!-- VoProperitesName(必須為大寫字母開頭) -->
+            <![CDATA[
+              dp.roles=Roles
+              dp.retailid=RetailId
+              dp.channel_type=ChannelType?Retail=R|Co-Partner=C|Franchise=F|BOG=B
+              dp.ex_ivrcode=Ivrcode
+              dp.is_owner=IsOwner              
+              timeseed=TimeSeed
+              FormType=FormType
+            ]]>
+          </Ref-Value>
+      </ref>   
+      
+      <!-- CURRENT_SUBSCRIBER_REQUEST_REQUIRED_PARAMETERS -->
+      <ref>
+          <Ref-Name>CURRENT_SUBSCRIBER_REQUEST_REQUIRED_PARAMETERS</Ref-Name>
+          <Ref-Value> 
+            <!-- requestParameterName -->
+            <![CDATA[
+            dp.roles            
+            dp.channel_type
+            dp.ex_ivrcode
+            dp.is_owner
+            timeseed
+            ]]>
+          </Ref-Value>
+      </ref>   
+      
+      <!-- CURRENT_SUBSCRIBER_REQUEST_KEY_CHANNEL_TYPE -->
+      <ref>
+          <Ref-Name>CURRENT_SUBSCRIBER_REQUEST_KEY_CHANNEL_TYPE</Ref-Name>
+          <Ref-Value>dp.channel_type</Ref-Value>
+      </ref> 
+      
+      <!-- CURRENT_SUBSCRIBER_REQUEST_KEY_IS_OWNER -->
+      <ref>
+          <Ref-Name>CURRENT_SUBSCRIBER_REQUEST_KEY_IS_OWNER</Ref-Name>
+          <Ref-Value>dp.is_owner</Ref-Value>
+      </ref>   
+      
+      <!-- CURRENT_SUBSCRIBER_REQUEST_KEY_MSISDN -->
+      <ref>
+          <Ref-Name>CURRENT_SUBSCRIBER_REQUEST_KEY_MSISDN</Ref-Name>
+          <Ref-Value>MSISDN</Ref-Value>
+      </ref>  
+      
+      <!-- CURRENT_SUBSCRIBER_REQUEST_KEY_TIMESEED -->
+      <ref>
+          <Ref-Name>CURRENT_SUBSCRIBER_REQUEST_KEY_TIMESEED</Ref-Name>
+          <Ref-Value>timeseed</Ref-Value>
+      </ref>
+      
+      
+      <!-- CURRENT_SUBSCRIBER_PARAM_KEY -->
+      <ref>
+          <Ref-Name>CURRENT_SUBSCRIBER_PARAM_KEY</Ref-Name>
+          <Ref-Value>param</Ref-Value>
+      </ref>
+      <!-- CURRENT_SUBSCRIBER_PARAM_HAS_URLENCODE -->
+      <ref>
+          <Ref-Name>CURRENT_SUBSCRIBER_PARAM_HAS_URLENCODE</Ref-Name>
+          <Ref-Value>true</Ref-Value>
+      </ref>  
+   </ENV_Subscriber>
+</SSI-System>

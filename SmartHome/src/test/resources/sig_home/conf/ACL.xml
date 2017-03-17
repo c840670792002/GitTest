@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="Big5"?>
+<!--
+/**
+ *   字串中如果有特殊字元 <. >, !, &,或空白.  可使用 <![CDATA[...............]]>
+ *
+-->
+<SSI-System>
+  <!--ACL API Setting -->
+  <ENV_ACL>
+     <!-- ACL_CHKITEM_AND_VO_MAP -->
+     <ref>
+         <Ref-Name>ACL_CHKITEM_AND_VO_MAP</Ref-Name>
+         <Ref-Value> 
+           <!-- ChkItemValue=VoProperitesName(大寫字母開頭)-->
+           <![CDATA[
+           CHANNEL_TYPE=ChannelType
+           STATUS_REASON_CODE=StatusReasonCode
+           AGENT=IsAgent
+           CONTRACT_EXPIRE=IsContractExpire
+           MSISDN_STATUS_CODE=Status
+           OWNER=IsOwner
+           ]]>
+         </Ref-Value>
+     </ref>
+     <!-- IGNORED_STATUS -->
+    <ref>
+      <Ref-Name>IGNORED_STATUS</Ref-Name>
+      <Ref-Value>
+      <!-- ignored CHECK_ITEM=contract CHECK_ITEM?value1[|value2[|value3]]]-->
+           <![CDATA[
+           STATUS_REASON_CODE=MSISDN_STATUS_CODE?A
+           ]]>
+      </Ref-Value>
+    </ref>
+    <ref>
+      <Ref-Name>IGNORED_STATUS_VALUE</Ref-Name>
+      <Ref-Value>ALL</Ref-Value>
+    </ref>
+   </ENV_ACL>
+</SSI-System>

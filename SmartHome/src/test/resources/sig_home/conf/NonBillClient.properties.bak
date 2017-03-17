@@ -1,0 +1,25 @@
+#default language setting
+default.language=zh_TW
+
+#================Un-Bill Setup===================
+UnBill_ProviderURL=t3://10.64.209.60:8901
+UnBill_SecurityPrincipal=weblogic
+UnBill_SecurityCredential=weblogic
+UnBill_JNDIDispatcherEJB=ejb.UnbillRemoteAPI
+
+#==================ECS Setup=====================
+ECS_ProviderURL=t3://10.64.209.60:8901
+ECS_SecurityPrincipal=weblogic
+ECS_SecurityCredential=weblogic
+ECS_JNDIDispatcherEJB=ejb.ECSRemoteAPI
+
+#================Un-Bill Setup===================
+Bundle_ProviderURL=t3://10.64.209.60:8901
+Bundle_SecurityPrincipal=weblogic
+Bundle_SecurityCredential=weblogic
+Bundle_JNDIDispatcherEJB=ejb.BundleRemoteAPI
+
+
+
+
+

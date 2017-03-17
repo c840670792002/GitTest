@@ -1,0 +1,49 @@
+# SIGERR_0000~SIGERR_0999
+# Any exceptions thrown from client side, mostly will be input parameter validation fail
+SGWERR_0000=Mandatory data is missing: %
+SGWERR_0001=Incorrect data formate: %
+SGWERR_0002=Lenght of input incorrect: %
+SGWERR_0003=This API support SIG-K ONLY: %
+SGWERR_0004=This API support SIG-F ONLY: %
+SGWERR_0005=Facade Access mode not match input data
+SGWERR_0006=Business Entity Type incorrect: %
+SGWERR_0007=Service Id not supported in SCAOperationK: %
+SGWERR_0008=Data not found for the supplied resource: %
+SGWERR_0009=Huge account exception: %
+
+# SIGERR_1000~SIGERR_1999
+# Application Exceptions
+SGWERR_1000=Error Calling BSCS Stored Procedure: %
+SGWERR_1001=SQL Exception: %
+SGWERR_1002=Input not found from server: %
+SGWERR_1003=MSISDN / ROCID validation fail.
+SGWERR_1004=Billing Data Issue : %
+SGWERR_1005=SCA Operation Failure : %
+SGWERR_1006=SCA Parameter not Found : %
+SGWERR_1007=Duplicate Tasks in SCA : %
+SGWERR_1008=ClassCastException encountered : %
+
+# SIGERR_3000~SIGERR_3999
+# Error or warning messages that can be customized and change in the future.
+#SGWERR_3001=因本帳單週期內已取消[@old]，本次變更[@new]將於下次出帳日後生效 : %
+SGWERR_3001=\u56e0\u672c\u5e33\u55ae\u9031\u671f\u5167\u5df2\u53d6\u6d88[@old]\uff0c\u672c\u6b21\u8b8a\u66f4[@new]\u5c07\u65bc\u4e0b\u6b21\u51fa\u5e33\u65e5\u5f8c\u751f\u6548 : %
+
+# SIGERR_9000~SIGERR_9998
+# System Exceptions. All system exceptions will be thrown here.
+SGWERR_9000=Configuration File not found: %
+SGWERR_9001=Property Value not found: %
+SGWERR_9002=API Method not found: %
+SGWERR_9003=Wrong APIMethod configuration: %
+SGWERR_9004=Failed connecting to SGW Server EJB.
+SGWERR_9005=SGW Server API invocation failure.
+SGWERR_9006=Cannot create database connection: %
+SGWERR_9007=Incorrect DB connection setting: %
+SGWERR_9008=Database Exception: %
+
+# SIGERR_9999
+# Unhanded Exceptions
+SGWERR_9999=Unhanded Exceptions
+
+
+
+

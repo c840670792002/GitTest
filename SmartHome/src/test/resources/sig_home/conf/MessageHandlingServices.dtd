@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+
+
+<!-- DTD for "xmlRule" -->
+
+
+
+<!ELEMENT MessageHandlingServices (Handlers*,Resources+,Properties?)>
+
+<!ELEMENT Handlers (Handler*)>
+
+<!ELEMENT Handler  (#PCDATA)>
+
+<!ATTLIST Handler
+
+	  name              CDATA             #REQUIRED
+
+	  property     	    CDATA             #IMPLIED
+
+>
+
+<!ELEMENT Resources (Resource*)>
+
+<!ELEMENT Resource  (Locale*)>
+
+<!ATTLIST Resource
+
+	  name              CDATA             #REQUIRED
+
+>
+
+<!ELEMENT Properties (MaxEntriesPerUser?,Filter?)>
+
+<!ELEMENT MaxEntriesPerUser  (#PCDATA)>
+
+<!ELEMENT Filter  (Severity?,TraceLevel?)>
+
+<!ELEMENT Severity  EMPTY>
+
+<!ATTLIST Severity  
+
+	  fatal             (yes | no)        #REQUIRED
+
+	  error             (yes | no)        #REQUIRED
+
+	  warning           (yes | no)        #REQUIRED
+
+	  information       (yes | no)        #REQUIRED
+
+	  debug             (yes | no)        #REQUIRED
+
+>
+
+<!ELEMENT TraceLevel  (#PCDATA) >
+
+<!ELEMENT Locale  EMPTY>
+
+<!ATTLIST Locale
+
+	  language          CDATA             #REQUIRED
+
+	  country           CDATA             #IMPLIED
+
+	  variant           CDATA             #IMPLIED
+
+>
+
+

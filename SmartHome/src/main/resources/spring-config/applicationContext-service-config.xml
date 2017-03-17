@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- sig -->
+	<bean id="SIGService"
+		class="com.fet.crm.smarthome.device.service.impl.SIGCustomerServiceImpl">
+		<property name="userProfileClient" ref="${user_profile_client_impl}" />
+		<property name="sigClient" ref="${sig_client_impl}" />
+	</bean>
+	<bean id="deviceService"
+		class="com.fet.crm.smarthome.device.service.impl.DeviceServiceImpl">
+		<property name="offerClient" ref="offerClient" />
+		<property name="deviceClient" ref="deviceClient" />
+	</bean>
+</beans>

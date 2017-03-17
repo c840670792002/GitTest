@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MessageHandlingServices SYSTEM "MessageHandlingServices.dtd">
+<MessageHandlingServices>
+        <Handlers>
+        <!--    <Handler name="CM1GeneralLogHandler" property="CM1GeneralLogHandler">amdocs.jutil.messageHandling.HandlersImpl.messageLog.MessageLogService</Handler> -->
+                <Handler name="CM1GeneralLogHandler" property="CM1GeneralLogHandler">amdocs.jutil.messageHandling.HandlersImpl.messageLog.MessageLogService</Handler>
+                <Handler name="GN1GeneralLogHandler" property="">amdocs.ar.general.util.ConsoleHandler</Handler>
+        </Handlers>
+        <Resources>
+                <Resource name="CM1Error">
+                        <Locale language="en"/>
+                </Resource>
+                <Resource name="ACMArchError">
+                        <Locale language="en"/>
+                </Resource>
+                <Resource name="CM5Error">
+                        <Locale language="en"/>
+                </Resource>
+                <Resource name="ARErrorMessages">
+                        <Locale language="en"/>
+                </Resource>
+                <Resource name="ARClientMessages">
+                        <Locale language="en"/>
+                </Resource>
+                <Resource name="GLErrorMessages">
+                        <Locale language="en"/>
+                </Resource>
+        </Resources>
+        <Properties>
+                <MaxEntriesPerUser>50</MaxEntriesPerUser>
+                <Filter>
+                        <Severity information="yes" warning="yes" error="yes" fatal="yes" debug="yes"/>
+                        <TraceLevel>1;12</TraceLevel>
+                </Filter>
+        </Properties>
+</MessageHandlingServices>
+

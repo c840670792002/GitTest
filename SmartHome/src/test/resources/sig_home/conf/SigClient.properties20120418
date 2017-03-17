@@ -1,0 +1,221 @@
+#*********************************************************************
+#---------------------------------------------------------------------
+#
+# This file contains properties configured for SIG Client Functioning
+#
+#---------------------------------------------------------------------
+#*********************************************************************
+
+
+#*********************************************************************
+#
+# Properties related to Weblogic Server configuration hosting SIG Server
+#
+# SIG_ProviderURL=JNDI URL where the SIG Server Controller Process is hosted
+# SIG_SecurityPrincipal=Security Principal used for communicating with WLI Server hosting SIG Server Controller Process
+# SIG_SecurityCredential=Security Credential used for communicating with WLI Server hosting SIG Server Controller Process
+# SIG_Server_Process=SIG Server Controller Process Class
+# SIG_Offer_Process=SIG Offer Process Class
+# SIG_BusinessProcessMethod=Method name for invoking SIG Server Controller Process
+# WLI_MBeansType=MBeans Type used for changing status of the SIG process instance on WLI Server
+#
+#
+# Following properties are for SIG's internal use, do not edit -
+# a) SIG_Server_Process
+# b) SIG_Offer_Process
+# c) SIG_BusinessProcessMethod
+# d) WLI_MBeansType
+#
+# Following properties must be verified and edited as per environment set-up -
+# a) SIG_ProviderURL
+# b) SIG_SecurityPrincipal
+# c) SIG_SecurityCredential
+#
+#*********************************************************************
+SIG_ProviderURL=t3://10.64.209.60:7811
+#SIG_ProviderURL=t3://10.64.209.2:8820
+#SIG_ProviderURL=t3://10.64.209.2:7830
+#SIG_ProviderURL=t3://10.64.209.60:9120
+#SIG_ProviderURL=t3://10.64.209.60:9126
+#VMS CR
+#SIG_ProviderURL=t3://10.64.209.60:7811
+SIG_SecurityPrincipal=weblogic
+SIG_SecurityCredential=weblogic
+SIG_Server_Process=weblogic.wli.jpdproxy.SIGServer
+SIG_Retv_Proces=weblogic.wli.jpdproxy.RetvSIGServer
+SIG_Resubmit_Process=weblogic.wli.jpdproxy.ResubmitSIGServer
+SIG_Offer_Process=weblogic.wli.jpdproxy.OfferEffectiveDate
+SIG_BusinessProcessMethod=invokeSIGServer
+SIG_MBeansType=ProcessRuntime
+
+
+#*********************************************************************
+#
+# Properties for accessing SIG Database
+#
+# SIG_DBDriver=Driver used for JDBC connectivity
+# SIG_DBURL=Driver URL for SIG Database
+# SIG_SIGDBDS=SIG DataSource JNDI Name
+#
+#*********************************************************************
+SIG_DBDriver=oracle.jdbc.driver.OracleDriver
+# SIG_DBURL=jdbc:oracle:thin:@10.64.209.2:1521:SIGTEST
+SIG_DBURL=jdbc:oracle:thin:@10.64.209.60:1630:SIGTEST
+SIG_SIGDBDS=SIGDB
+
+
+#*********************************************************************
+#
+# Properties for preparing audit log at SIG Client for SIG activities
+#
+# SIG_LogTable=SIG Database Table where the log entries will be stored
+# SIG_LogLevel=Log level applicable using log4j utility
+# SIG_BufferSize=Buffer Size using log4j utility
+#
+#*********************************************************************
+SIG_LogTable=SIG_AUDIT_LOG
+SIG_LogLevel=Info
+SIG_BufferSize=5
+
+
+#*********************************************************************
+#
+# Mapping of Future Task Status Code against the Status Description
+#
+# Following are the Status Codes maintained by SIG (having 'FTS_' [Future Task Status] as prefix in this section)-
+#
+# 1=COMPLETED (Future Task has been executed successfully)
+# 2=IN PROGRESS (Future Task is currently being executed)
+# 3=ERROR (Future Task failed during execution)
+# 4=PENDING (Future Task in sleeping mode, waiting for scheduled execution)
+# 5=CANCELLED (Future Task has been cancelled)
+# 6=SUSPENDED (Future Task has been suspended)
+# 7=FROZEN (Future Task has been frozen)
+# 8=TRANSFERRED (Future Task has been transferred to transaction log)
+#
+# Only the description of these status should be changed to desired value.
+# No other change should be made as those are for SIG's internal use.
+#
+#*********************************************************************
+FTS_1=COMPLETED
+FTS_2=IN PROGRESS
+FTS_3=ERROR
+FTS_4=PENDING
+FTS_5=CANCELLED
+FTS_6=SUSPENDED
+FTS_7=FROZEN
+FTS_8=TRANSFERRED
+
+#*********************************************************************
+#
+# Mapping of Network Operation Code against the Network Operation Description
+#
+# Following are the Network Operations maintained by SIG (having 'NETOP_' [NETWORK OPERATION] as prefix in this section)-
+#
+# 1=BAR
+# 2=UNBAR
+# 3=HOTLINE
+# 4=UNHOTLINE
+# 5=SUSPEND
+# 6=RECONNECT
+# 7=TERMINATE
+#
+# Only the description of these status should be changed to desired value.
+# No other change should be made as those are for SIG's internal use.
+#
+#*********************************************************************
+NETOP_1=BAR
+NETOP_2=UNBAR
+NETOP_3=HOTLINE
+NETOP_4=UNHOTLINE
+NETOP_5=SUSPEND
+NETOP_6=RECONNECT
+NETOP_7=TERMINATE
+
+
+#*********************************************************************
+#
+# Parameter Name for storing Friend & Family Numbers
+#
+# Should be changed to actual Parameter Name used in Amdocs for storing FnF service numbers
+#
+#*********************************************************************
+FNF_PARAM_NAME=Friend numbers
+
+
+#*********************************************************************
+#
+# Parameter Name for storing Relationships required to retrieve Default offers
+#
+# Following are the Relationships maintained as configurable parameters
+#
+# RELATION_PRICE_PROMOTION (Relationship between PricePlan and Promotion used for validation - Promotion under Price Plan or not)
+# RELATION_DEFAULT (Relationship for Default Value)
+# RELATION_MANDATORY (Relationship for Mandatory Value)
+# RELATION_VAS_VAS (Relationship between VAS and VAS)
+#
+# It is assumed only one value exists for these properties. These values should be changed to reflect the appropriate relationship types in SIG DB
+#
+#*********************************************************************
+RELATION_PRICE_PROMOTION=BPPPE
+RELATION_DEFAULT=LSASS
+RELATION_MANDATORY=TTASS
+RELATION_VAS_VAS=PRQVS
+
+#*********************************************************************
+#
+# System Exception Category
+#
+#*********************************************************************
+EXC_JAVA.LANG.CLASSNOTFOUNDEXCEPTION=SIG_APP006
+EXC_JAVA.NET.CONNECTEXCEPTION=SIG_APP006
+EXC_JAVAX.NAMING.NAMENOTFOUNDEXCEPTION=SIG_APP006
+EXC_JAVAX.NAMING.COMMUNICATIONEXCEPTION=SIG_APP006
+
+#*********************************************************************
+#
+# Minimum Length of Promotion Code
+#
+#*********************************************************************
+LENGTH_PROMOTION_CODE=12
+
+#*********************************************************************
+#
+# Maximum deposit amount while performing the market move operation
+#
+#*********************************************************************
+DEPOSIT_MAX_AMOUNT=3000
+
+#*********************************************************************
+#
+# Pattern for retrieval API's
+# Pattern Options
+# 1 --> startsWith (prefix) eg: PATTERN_STR=ret,search,query,get
+# 2 --> equals (Exact match) eg: PATTERN_STR=retvBillCycles,retvBillSummary
+# 3 --> startsWith OR equals  eg: PATTERN_STR=ret,search,query,get,retvBillCycles,retvBillSummary
+# Note: The comma separated pattern values are case sensitive
+#*********************************************************************
+PATTERN_OPTION=1
+PATTERN_STR=ret,search,query,get,check,WM,amdocsHealthInfo,start,stop,query,modifyFutureTaskData
+
+
+#*********************************************************************
+#
+# Pattern to record the data into audit log with api name and sig status code patterns
+# Pattern flag - provides a facility to ON / OFF Eg: AUDIT_LOG_PATTERN_FLAG=1
+#  1 --> ON 
+#  0 --> OFF
+#
+# AUDIT_LOG_PATTERN_STR --> Specified pattern or API name information will be recorded in sig audit log based on status code below
+# AUDIT_LOG_PATTERN_STR --> startsWith (prefix) eg: PATTERN_STR=ret,search,query,get
+#
+# SIG_STATUS_PATTERN_STR pattern 
+# SIG_STATUS_PATTERN_STR --> Specified status codes information will not be recorded sig audit log table
+#  Eg: SIG_STATUS_PATTERN_STR=00000,SIG_APP006
+#  00000 ->SUCCESS, SIG_APP006=System Exception  ..etc, refer ErrorCode.properties for error descriptions
+#
+# Note: The comma separated pattern values are case sensitive
+#*********************************************************************
+AUDIT_LOG_PATTERN_FLAG=1
+AUDIT_LOG_PATTERN_STR=c,u,r,m,p,T
+SIG_STATUS_PATTERN_STR=00000
